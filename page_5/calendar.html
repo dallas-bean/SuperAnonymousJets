@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Team Calendar</title>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Team Calendar</h1>
+            <p id="date">
+                <script>
+                    const date = new Date();
+
+                    let currentDay = String(date.getDate()).padStart(2, '0');
+                    let currentMonth = String(date.getMonth()+1).padStart(2,"0");
+                    let currentYear = date.getFullYear();
+                    let currentDate = `${currentDay}-${currentMonth}-${currentYear}`;
+
+                    document.getElementById("date").innerHTML = ("Today: " + currentDate);
+                </script>
+            </p>
+        </header>
+        <div class="pageWrap">   
+            <iframe width="100%" height="100%" frameborder="0" scrolling="no" src="https://sunairjets-my.sharepoint.com/personal/dbean_sunairjets_com/_layouts/15/Doc.aspx?sourcedoc={e23e1cb4-c1f5-418d-a266-f20533b60484}&action=embedview&wdAllowInteractivity=False&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"></iframe>
+        </div>
+    </main>
+</body>
+</html>
