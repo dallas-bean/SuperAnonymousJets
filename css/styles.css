@@ -27,14 +27,11 @@ main {
     align-items: center;
 }
 
-.hide {
-    z-index: 1;
-}
-
 title,
 script,
 .hide {
     display: none;
+    visibility: hidden;
 }
 
 h1 img {
@@ -55,6 +52,12 @@ h1 img {
 .bold {
     font-weight: bold;
 }
+
+.gridify {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+        }
 
 .top {
     z-index: 1;
@@ -80,6 +83,9 @@ h1 img {
     @media (max-height:725px) {
         body {
             overflow: hidden;
+        }
+        main {
+            margin-top: 16vh;
         }
     }
     
