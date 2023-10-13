@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>SAJ 24Hr doc</title>
+</head>
+<body>
+        <main>            
+    <div class="pageWrap">
+            <header>
+                <div class="background-color">
+                    <h1 class="center">SAJ 24 Hour Release</h1>
+                        <p id="topOfPage">
+                            <input 
+                                type="text"
+                                class="headLine"
+                                placeholder="Client | Tail # | Route | date | Trip #"
+                                required>
+                        </p>
+                </div>
+                </header>
+                <section>
+                    <table>
+                    <tr>
+                        <th class="underLine">Airport Identifier</th>
+                            <td><input type="text" class="dont-print" placeholder="ICAO"></td>
+                            <td><input type="text" class="dont-print" placeholder="ICAO"></td>
+                            <td><input type="text" class="dont-print" placeholder="ICAO"></td>
+                            <td><input type="text" class="dont-print" placeholder="ICAO"></td>
+                            <td><input type="text" class="dont-print" placeholder="ICAO" id="dont-leave"></td>
+                    </tr>
+                    <tr>
+                        <th class="underLine">ETA / ETD (All times in Zulu)</th>
+                            <td><input type="text" class="dont-print" placeholder="ETA / ETD"></td>
+                            <td><input type="text" class="dont-print" placeholder="ETA / ETD"></td>
+                            <td><input type="text" class="dont-print" placeholder="ETA / ETD"></td>
+                            <td><input type="text" class="dont-print" placeholder="ETA / ETD"></td>
+                            <td><input type="text" class="dont-print" placeholder="ETA / ETD"></td>
+                    </tr>
+    <!-- CREWING -->
+                    <tr>
+                        <th class="underLine">Crew & C.A. Assignment</th>
+                            <td></td>
+                            <td><input type="text" class="dont-print" placeholder="PIC"></td>
+                            <td><input type="text" class="dont-print" placeholder="SIC"></td>
+                            <td><input type="text" class="dont-print" placeholder="C.A."></td>
+                            <td><input type="text" class="dont-print" placeholder="Flight Controller"></td>
+                    </tr>
+                    <tr class="center-text">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th class="center-text">Scheduling Suitability</th>
+                        <th></th>
+                    </tr>
+    <!-- TIMES -->
+                    <tr>
+                        <th class="underLine">TIMES</th>
+                            <td class="underLine"><span class="mini-me"><i>total flight / total duty / duty off (day prior) / duty on</i></span></td>
+                            <td><input type="text" class="dont-print" placeholder="Total Flight Time" class=""></td>
+                            <td><input type="text" class="dont-print" placeholder="Total Duty Time" class=""></td>
+                            <td><input type="text" class="dont-print" placeholder="Duty off (day prior)" class=""></td>
+                            <td><input type="text" class="dont-print" placeholder="Duty on" class=""></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Minimum rest requirements met?</th>
+                        <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                        <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Complies with 10/24?</th>
+                        <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                        <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Maintenance advised / released?</th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">12+ hrs duty? <br><span class="mini-me"><i>(Ops approval?)</i></span></th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+                    
+                    <tr>
+                        <th class="underLine">Max duty range? <span class="mini-me"><i>(exceeds 13.5 hours?)</i></span></th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    <!-- WEATHER -->
+                    <tr class="center-text">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th class="center-text">Weather</th>
+                        <th></th>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Weather <a href="https://www.aviationweather.gov/" target="_blank">(TAF)</a>?</th>
+                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
+                    </tr>
+    
+                    <tr>
+                        <th><span class="mini-me"><em>(ADVISE OPS IF WIND SHEAR AND/OR FREEZING FOG OR FREEZING RAIN [FZFG/FZRA])</em></span></th>
+                        <td><textarea name="" id="" cols="22" rows="5"></textarea></td>
+                        <td><textarea name="" id="" cols="22" rows="5"></textarea></td>
+                        <td><textarea name="" id="" cols="22" rows="5"></textarea></td>
+                        <td><textarea name="" id="" cols="22" rows="5"></textarea></td>
+                        <td><textarea name="" id="" cols="22" rows="5"></textarea></td>
+                    </tr>
+    
+                    <tr>
+                        <th><em><a href="https://www.notams.faa.gov/dinsQueryWeb/" target="_blank">NOTAMs</a>?</em></th>
+                        <td><textarea class="dont-print" name="" id="" cols="22" rows="5" placeholder="NOTAM #'s and details"></textarea></td>
+                        <td><textarea class="dont-print" name="" id="" cols="22" rows="5" placeholder="NOTAM #'s and details"></textarea></td>
+                        <td><textarea class="dont-print" name="" id="" cols="22" rows="5" placeholder="NOTAM #'s and details"></textarea></td>
+                        <td><textarea class="dont-print" name="" id="" cols="22" rows="5" placeholder="NOTAM #'s and details"></textarea></td>
+                        <td><textarea class="dont-print" name="" id="" cols="22" rows="5" placeholder="NOTAM #'s and details"></textarea></td>
+                    </tr>
+                    
+                    <tr>
+                        <th class="underLine"><a href="https://tfr.faa.gov/tfr2/list.html" target="_blank">TFR's? <br><span class="mini-me"><i>Note any conflict</i></span></a></th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    <!-- AIRFIELD SUITABILITY -->
+                    <tr class="center-text">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th class="center-text">Airfield Suitability</th>
+                        <th></th>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">FBO's coordinated, hours of operation checked?</th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Fuel coordinated, availability checked?</th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine"><a href="../page_4/Pubs/Mountainous_Airports_-_GOM_Rev_46.pdf" target="_blank">Daytime only</a>?</th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine"><a href="../page_4/Pubs/Mountainous_Airports_-_GOM_Rev_46.pdf" target="_blank">Mountainous?</a></th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine"><a href="https://www.boeing.com/commercial/noise/list.page" target="_blank">Noise limits &/or curfew compliance?</a></th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Winter weather? Thunderstorms?</th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">LAV Service available?</th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Hangar / de-ice available? (Arranged?)</th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">PPR(s) obtained? PPR numbers?</th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Parking obtained?</th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Overwater / coastal operations? <br /> <span class="mini-me"><em>NOTIFY CREW - RAFTS ***</em></span></th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Performance restrictions? <span class="mini-me"><i>(hot wx / short field / high elev. / etc)</i></span></th>
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><textarea class="dont-print" name="prbox" id="prbox" cols="21" rows="7"></textarea></td>
+                    </tr>
+    <!-- INTERNATIONAL -->
+                    <tr class="center-text">
+                        <th></th>
+                        <th class="center-text"><button id="boot" class="" onclick="one(), two()">International?</button></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <script>
+                            function one() {
+                                var element = document.getElementById('international');
+                                element.classList.toggle("collapse");
+                            }
+                            function two() {
+                                var element = document.getElementById('boot');
+                                element.classList.toggle("collapse");
+                            }
+                        </script>
+                    </tr>
+    
+                    <tbody id="international" class="collapse">
+                        <tr class="center-text">
+                            <th><button onclick="one(), two()">hide</button></th>
+                            <th></th>
+                            <th></th>
+                            <th class="center-text">International</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th class="underLine">Handler &/or local handling agent arranged / confirmed?</th>
+                                <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+        
+                        <tr>
+                            <th class="underLine">PAX manifest complete?<span class="mini-me"><i>(name, PP#, exp, DOB, Citizenship)</i></span></th>                        <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+        
+                        <tr>
+                            <th class="underLine">Passengers meet entry requirements? <span class="mini-me"><i>(visa / residency / passport / immunization / minor traveling with one parent / required misc. travel doc's)</i></span></th>
+                                <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+        
+                        <tr>
+                            <th class="underLine">eAPIS filed?</th>
+                                <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+        
+                        <tr>
+                            <th class="underLine">Overflight permit(s) obtained?</th>
+                                <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+        
+                        <tr>
+                            <th class="underLine">Landing permit(s) obtained?</th>
+                                <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+        
+                        <tr>
+                            <th class="underLine">PPR(s) obtained?</th>
+                                <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+        
+                        <tr>
+                            <th class="underLine">Customs hours comply with arrival / departure date and time?</th>
+                                <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+        
+                        <tr>
+                            <th class="underLine">Customs arranged / current?</th>
+                                <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+        
+                        <tr>
+                            <th class="underLine">Slot(s) obtained?</th>
+                                <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+        
+                        <tr>
+                            <th class="underLine">Permit(s) acquired? (if applicable)</th>
+                                <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+        
+                        <tr>
+                            <th class="underLine">Parking confirmed?</th>
+                                <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+        
+                        <tr>
+                            <th class="underLine">Crew transportation / hotel arranged?</th>
+                                <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                                <td><input type="text" class="textBox"></td>
+                        </tr>
+                    </tbody>
+    <!-- CUSTOMER SERVICE -->
+                    <tr class="center-text">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th class="center-text">Customer service(s)</th>
+                        <th></th>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Catering arranged?</th>    
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Transportation arranged?</th>    
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">TSA Checked?</th>    
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Pets?</th>    
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Guns?</th>    
+                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><input type="text" class="textBox"></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Notes:</th>
+                            <td></td>
+                            <td><textarea class="dont-print" name="fsummary" id="fsummary" cols="10" rows="7"></textarea></td>
+                    </tr>
+    
+                    <tr>
+                        <th class="underLine">Completed on:</th>
+                            <td><input type="date"><input type="time"></td>
+                            <td></td>
+                            <td><span class="button-box"><button onclick="window.print();return false" class="p-button">Print to PDF</button></span></td>
+                            <td><span class="button-box"><a href="../index.html" target="_blank"><button class="p-button">Return home</button></a></span></td>
+                    </tr>
+                    </table>
+                </section>
+            </div>
+        </main>
+</body>
+</html>

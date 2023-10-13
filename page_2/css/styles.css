@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-image: url(../img/bgtwo.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.pageWrap {
+    margin: 0 auto;
+    padding: 20px;
+    width: 55%;
+    min-width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(187, 220, 250);
+    opacity: 87%;
+}
+
+@media (max-width:1550px) {
+    .pageWrap {
+        width: 70%;
+        min-width: 70%;
+    }
+}
+
+.collapse {
+    display: none;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;    
+    scroll-behavior: smooth;
+}
+
+.background-color {
+    margin: 0 auto;
+    width: 54%;
+    background-color: rgb(187, 220, 250);
+    opacity: 87%;
+}
+
+#topOfPage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+table {
+    overflow-x: scroll;
+    position:sticky;
+    margin-top: 9%;
+}
+
+.headLine {
+    width:50%;
+    font-weight: 700;
+    font-size: medium;
+    border: 2px solid black;
+    letter-spacing: 1px;
+}
+
+th {
+    text-align: right;
+    font-size: .9rem;
+}
+
+.mini-me {
+    font-size: .75rem;
+}
+
+.underLine {
+    border-bottom: 1px solid black;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.textBox,
+#prbox,
+#fsummary {
+    width: 404%;
+    opacity: 80%;
+}
+
+#crewingComments {
+    width: 200%;
+}
+
+textarea {
+    resize: none;
+    opacity: 80%;
+}
+
+.center-text {
+    text-align: center !important;
+}
+
+button {
+    height: 1.5rem;
+    width: 7rem;
+}
+
+@media print {
+    button {
+        display: none;
+    }
+    a {
+        color: black;
+        text-decoration: none;
+    }
+    .dont-print:placeholder-shown {
+        display: none;
+    }
+    header {
+        position: relative;
+    }
+
+    .headLine {
+        width: 100%;
+    }
+
+    .background-color {
+        width:100%;
+    }
+    }
