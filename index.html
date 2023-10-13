@@ -9,75 +9,72 @@
 <body>
     <header><h1><img src="./img/header-five.png" alt="Super Anonymous Jets Flight Control"></h1></header>
     <main>
-        <div class="primary">
-            <div class="dropdown">
-                <button class="drop-button"><img src="./img/documents.png" alt="Documents" class="icon shrink"></button>
-                <div class="dropdown-content">
-                    <a href="https://sunairjets.sharepoint.com/:x:/r/sites/Dispatch/_layouts/15/Doc.aspx?sourcedoc=%7B938ce8bf-c86d-4124-ae9c-e1b9f3b4fdc5%7D&action=view" target="_blank">Daily Checklist</a>
-                    <a href="./page_2/fere.html" target="_blank">Feasibility Report</a>
-                    <a href="./page_3/releaseDoc.html" target="_blank">24 Hour Release Document</a>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button class="drop-button"><img src="./img/resources.png" alt="Resources" class="icon shrink"></button>
-                <div class="dropdown-content">
-                    <a href="https://sunairjets.sharepoint.com/sites/FlightControl" target="_blank">Pubs Library</a>
-                    <a href="https://www.notams.faa.gov/dinsQueryWeb/" target="_blank">NOTAMS</a>
-                    <a href="https://tfr.faa.gov/tfr2/list.html" target="_blank">TFR's</a>
-                    <a href="https://www.aviationweather.gov/" target="_blank">Weather (TAF's)</a>
-                    <a href="https://www.weather.gov/" target="_blank">Weather (LR-domestic)</a>
-                    <a href="https://www.fltplan.com/#" target="_blank">Fltplan.com</a>
-                    <a href="https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/advanced/" target="_blank">AFD's</a>
-                    <a href="https://www.fly.faa.gov/flyfaa/plaintext.html" target="_blank">Ground stops</a>
-                    <a href="https://lp.signatureflight.com/travel-alerts" target="_blank">Signature FBO alerts</a>
-                    <a href="https://www.nhc.noaa.gov/cyclones/" target="_blank">Hurricanes</a>
-                    <a href="https://www.worldtimebuddy.com/" target="_blank">Time conversion table</a>
-                    <a href="https://www.time.gov/?t=24" target="_blank">Time zones</a>
-                </div>
-            </div>
-        </div>
-    </main><br><br><br><br>
+            <span class="column">
+                <span class="dropdown">
+                    <span class="drop-button"><img src="./img/documents.png" alt="Documents" class="icon shrink"></span>
+                    <div class="dropdown-content">
+                        <a href="https://sunairjets.sharepoint.com/:x:/r/sites/Dispatch/_layouts/15/Doc.aspx?sourcedoc=%7B938ce8bf-c86d-4124-ae9c-e1b9f3b4fdc5%7D&action=view" target="_blank">Daily Checklist</a>
+                        <a href="./page_2/fere.html" target="_blank">Feasibility Report</a>
+                        <a href="./page_3/releaseDoc.html" target="_blank">24 Hour Release Document</a>
+                    </div>
+                </span>
+            </span>
+            <span class="column">
+                <span class="dropdown">
+                    <span class="drop-button" onmouseenter="display()"><img src="./img/portals.png" alt="portals" name="portals" class="icon"></span>
+                </span>
+            </span>
+            <span class="column">
+                <span class="dropdown">
+                    <span class="drop-button"><img src="./img/resources.png" alt="Resources" class="icon shrink"></span>
+                    <div class="dropdown-content">
+                        <a href="https://sunairjets.sharepoint.com/sites/FlightControl" target="_blank">Pubs Library</a>
+                        <a href="https://www.notams.faa.gov/dinsQueryWeb/" target="_blank">NOTAMS</a>
+                        <a href="https://tfr.faa.gov/tfr2/list.html" target="_blank">TFR's</a>
+                        <a href="https://www.aviationweather.gov/" target="_blank">Weather (TAF's)</a>
+                        <a href="https://www.weather.gov/" target="_blank">Weather (LR-domestic)</a>
+                        <a href="https://www.fltplan.com/#" target="_blank">Fltplan.com</a>
+                        <a href="https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/advanced/" target="_blank">AFD's</a>
+                        <a href="https://www.fly.faa.gov/flyfaa/plaintext.html" target="_blank">Ground stops</a>
+                        <a href="https://lp.signatureflight.com/travel-alerts" target="_blank">Signature FBO alerts</a>
+                        <a href="https://www.nhc.noaa.gov/cyclones/" target="_blank">Hurricanes</a>
+                        <a href="https://www.worldtimebuddy.com/" target="_blank">Time conversion table</a>
+                        <a href="https://www.time.gov/?t=24" target="_blank">Time zones</a>
+                    </div>
+                </span>
+            </span>
+    </main>
     
-    <div class="sidenav">
+    <div class="hide top" id="portals" onmouseleave="display()">
+        <a href="https://front.com/" target="_blank" class="link">
+        <img src="./img/Front-Icon.png" alt="Front" name="frontImg" class="icon">
+        </a>
 
-        <span class="hoverOver" id="hide">
-            <img src="./img/portals.png" alt="portals" name="portals" class="icon">
-        </span>
+        <img src="./img/JetInsight-Icon.png" alt="Jet Insight" name="jetInsightImg" class="icon">
+        </a>
 
-        <div class="hoverOver hide">
-            <a href="https://front.com/" target="_blank" class="link">
-            <img src="./img/Front-Icon.png" alt="Front" name="frontImg" class="icon">
-            </a>
+        <img src="./img/Satcom-Icon.png" alt="Satcom" name="satcomImg" class="icon">
+        </a>
 
-            <a href="https://portal.jetinsight.com/" target="_blank" class="link">
-            <img src="./img/JetInsight-Icon.png" alt="Jet Insight" name="jetInsightImg" class="icon">
-            </a>
-    
-            <a href="https://www.satcomdirect.com/" target="_blank" class="link">
-            <img src="./img/Satcom-Icon.png" alt="Satcom" name="satcomImg" class="icon">
-            </a>
-    
-            <a href="https://plan.foreflight.com/" target="_blank" class="link">
-            <img src="./img/Foreflight-Icon.png" alt="foreflight" name="foreflightImg" class="icon">
-            </a>
-    
-            <a href="https://uvgo.universalweather.com/auth/login" target="_blank" class="link">
-            <img src="./img/Universal-Icon.png" alt="universal" name="universalImg" class="icon">
-            </a>
-    
-            <a href="https://secure2.saashr.com/ta/SunAir.clock?login=0&msg=" target="_blank" class="link">
-            <img src="./img/Timecard-Icon.png" alt="Timesheets" name="timesheetsImg" class="icon">
-            </a>
-    
-            <a href="./page_5/calendar.html" target="_blank" class="link">
-            <img src="./img/calendar.png" alt="calendar" name="calendarIcon" class="icon">
-            </a>
-    
-            <a href="https://acsf.quickbase.com/db/main?a=SignIn&nexturl=https%3A%2F%2Facsf.quickbase.com%2Fdb%2Fbqk6aczxa%3Fa%3Dtd&rc=psi" target="_blank" class="link">
-            <img src="./img/Safety-Reports-icon.png" alt="Safety Reports" name="safetyReportImg" class="icon">
-            </a>
-        </div>
+        <img src="./img/Foreflight-Icon.png" alt="foreflight" name="foreflightImg" class="icon">
+        </a>
 
+        <a href="https://uvgo.universalweather.com/auth/login" target="_blank" class="link">
+        <img src="./img/Universal-Icon.png" alt="universal" name="universalImg" class="icon">
+        </a>
+
+        <a href="https://secure2.saashr.com/ta/SunAir.clock?login=0&msg=" target="_blank" class="link">
+        <img src="./img/Timecard-Icon.png" alt="Timesheets" name="timesheetsImg" class="icon">
+        </a>
+
+        <a href="./page_5/calendar.html" target="_blank" class="link">
+        <img src="./img/calendar.png" alt="calendar" name="calendarIcon" class="icon">
+        </a>
+
+        <a href="https://acsf.quickbase.com/db/main?a=SignIn&nexturl=https%3A%2F%2Facsf.quickbase.com%2Fdb%2Fbqk6aczxa%3Fa%3Dtd&rc=psi" target="_blank" class="link">
+        <img src="./img/Safety-Reports-icon.png" alt="Safety Reports" name="safetyReportImg" class="icon">
+        </a>
+    </div> 
     </div>
         <div class="clock">
             <span id="clockDisplay" onload="showTime()"></span>
@@ -111,5 +108,10 @@
 }
 
 showTime();
+
+function display() {
+        var element = document.getElementById('portals');
+        element.classList.toggle("hide");
+}
 </script>
 </html>
