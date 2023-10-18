@@ -99,6 +99,13 @@
     h = (h < 10) ? "0" + h : h;
     m = (m < 10) ? "0" + m : m;
     s = (s < 10) ? "0" + s : s;
+
+    if(htwo > 23){
+        htwo = htwo - 24;
+    }
+    if(hthree > 23){
+        hthree = hthree - 24;
+    }
     
     var tzone = h + ":" + m + ":" + s + " " + pdt;
     var tztwo = htwo + ":" + m + ":" + s + " " + edt;
