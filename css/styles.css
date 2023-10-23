@@ -19,12 +19,15 @@ body {
 }
 
 main {
-    margin-top: 13vh;
     width: 100vw;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+header {
+    height: 125px;
 }
 
 title,
@@ -35,7 +38,8 @@ script,
 }
 
 h1 img {
-    position: absolute;
+    position:relative;
+    left: auto;
     top: -8vh;
 }
 
@@ -70,6 +74,9 @@ h1 img {
             height:50px;
             width: 150px;
         }
+        .clock {
+            font-size: 1rem;
+        }
     }
     
     
@@ -78,26 +85,11 @@ h1 img {
             height:45px;
             width: 95px;
         }
-    }
-    
-    @media (max-height:725px) {
-        body {
-            overflow: hidden;
-        }
-        main {
-            margin-top: 16vh;
-        }
-    }
-    
-    @media (max-width:1000px) {
-        .clock {
-            font-size: 1rem;
-        }
         .clock {
             display: none;
         }
     }
-/* media queries */
+    
 /* drop-menu logic */
     
     .dropdown {
