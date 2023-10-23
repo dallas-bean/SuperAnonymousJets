@@ -46,8 +46,6 @@ header {
 .background-color {
     margin: 0 auto;
     width: 54%;
-    background-color: rgb(187, 220, 250);
-    opacity: 87%;
 }
 
 #topOfPage {
@@ -62,6 +60,8 @@ table {
     overflow-x: scroll;
     position:sticky;
     margin-top: 9%;
+    background-color: rgb(187, 220, 250);
+    overflow-y: scroll;
 }
 
 .headLine {
