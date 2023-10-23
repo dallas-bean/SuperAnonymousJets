@@ -61,9 +61,10 @@ header {
 
 
 table {
-    overflow-x: scroll;
     position:sticky;
     margin-top: 9%;
+    width: 100%;
+    background-color: whitesmoke;
 }
 
 
