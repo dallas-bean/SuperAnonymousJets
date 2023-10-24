@@ -31,8 +31,8 @@
                             <td><input type="text" class="dont-print" placeholder="ICAO"></td>
                             <td><input type="text" class="dont-print" placeholder="ICAO"></td>
                     </tr>
-                    <tr>
-                        <th class="underLine">ETA / ETD <i>(All times in Zulu)</i></th>
+                    <tr">
+                        <th class="underLine">ETA / ETD <br><span class="mini-me"><i>(All times in Zulu)</i></span></th>
                             <td><input type="text" class="dont-print" placeholder="ETA / ETD"></td>
                             <td><input type="text" class="dont-print" placeholder="ETA / ETD"></td>
                             <td><input type="text" class="dont-print" placeholder="ETA / ETD"></td>
@@ -79,11 +79,11 @@
                         <td><input type="text" class="dont-print" placeholder="PIC"></td>
                         <td><input type="text" class="dont-print" placeholder="SIC"></td>
                         <td><input type="text" class="dont-print" placeholder="C.A."></td>
-                        <td><textarea name="crew-comments" id="crew-comments" cols="22" rows="3" class="dont-print" placeholder="Crewing-comments"></textarea></td>
+                        <td><textarea name="crew-comments" id="crew-comments" cols="22" rows="5" class="dont-print lift" placeholder="Crewing-comments"></textarea></td>
                 </tr>
                 <tr>
                     <th class="underLine">Total times </th>
-                    <td class="underLine mini-me"><i>total flight time / duty time / duty off (day prior) / duty on</i></td>
+                    <td class="underLine mini-me"><i>total flight time / duty time / <br>duty off (day prior) / duty on</i></td>
                     <td><input type="text" class="dont-print" placeholder="Total Flight Time"></td>
                     <td><input type="text" class="dont-print" placeholder="Total Duty Time"></td>
                     <td><input type="text" class="dont-print" placeholder="Duty off (day prior)"></td>
@@ -355,7 +355,6 @@
                         <td><input type="date"><input type="time"></td>
                         <td></td>
                         <td><span class="button-box"><button type="button" onclick="window.print();return false" class="p-button">Print to PDF</button></span></td>
-                        <td><span class="button-box"><a href="../index.html" target="_blank"><button class="p-button">Return home</button></a></span></td>
                 </tr>
                 </table>
             </section>
