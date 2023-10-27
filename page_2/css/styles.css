@@ -82,7 +82,9 @@ p button {
 .background-color {
     margin: 0 auto;
     width: 54%;
+    padding-bottom: 0.25vh;
     background-color: #ffffffb6;
+    border-radius: 10px;
 }
 
 #topOfPage {
@@ -95,10 +97,11 @@ p button {
 }
 
 table {
-    position:sticky;
-    margin-top: 9%;
+    position:relative;
+    margin-top: 11%;
     width: 100%;
     background-color: #ffffffb6;
+    border-radius: 10px;
 }
 
 .headLine {
