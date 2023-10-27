@@ -254,10 +254,30 @@
                     </tr>
     
                     <tr>
-                        <th class="underLine">Overwater / coastal operations? <br /> <span class="mini-me"><em>NOTIFY CREW - RAFTS ***</em></span></th>
-                            <td class="center">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
-                            <td><input type="text" class="textBox"></td>
+                        <th class="underLine">Overwater / coastal operations?</th>
+                            <td class="center-text">YES<input type="checkbox" name="YES" class="YES" id="q3" onclick="popup3()">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td>
+                                <p id="warning3" style="display: none;">
+                                    NOTIFY CREW - RAFTS!<button class="closebutton" id="closebutton1" onclick="closeout3()">&times;</button></p>
+                                <input type="text" class="textBox">
+                            </td>
                     </tr>
+                    <script>                        
+                        function closeout3() {
+                            var reset = document.getElementById("warning3");
+                            reset.style.display = "none";
+                        }
+                        function popup3() {
+                                var checkbox = document.getElementById("q3");
+                                var prompt = document.getElementById("warning3");
+
+                                if (checkbox.checked == true){
+                                    prompt.style.display = "block";}
+                                    else {
+                                        prompt.style.display = "none"
+                                    }
+                                }
+                    </script>
     
                     <tr>
                         <th class="underLine">Performance restrictions? <br><span class="mini-me"><i>(hot wx / short field / high elev. / etc)</i></span></th>
