@@ -47,14 +47,14 @@ header {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 99;    
-    scroll-behavior: smooth;
+    z-index: 99;
 }
 
 .background-color {
     margin: 0 auto;
     width: 59%;
     background-color: #ffffffb6;
+    border-radius: 10px;
 }
 
 
@@ -63,6 +63,7 @@ table {
     margin-top: 9%;
     width: 100%;
     background-color: #ffffffb6;
+    border-radius: 10px;
 }
 
 
@@ -99,6 +100,17 @@ th {
     opacity: 80%;
 }
 
+#warning3 {
+    position: absolute !important;
+    padding: 1rem !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    border-radius: 10px !important;
+    z-index: 99 !important;
+    background-color: white !important;
+    border: 1px solid black !important;
+}
+
 textarea {
     resize: none;
     opacity: 80%;
@@ -106,6 +118,20 @@ textarea {
 
 .center-text {
     text-align: center !important;
+}
+
+.closebutton {
+    width: 1rem !important;
+    height: 1rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p button {
+    position: relative;
+    top: -3.5vh;
+    left: 100%;
 }
 
 button {
