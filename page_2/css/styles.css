@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-image: url(../img/bgfour.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.pageWrap {
+    margin: 0 auto;
+    padding: 20px;
+    width: 55%;
+    min-width: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#warning1,
+#warning2,
+#warning3 {
+    position: absolute;
+    padding: 1rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-radius: 10px;
+    z-index: 99;
+    background-color: white;
+    border: 1px solid black;
+}
+
+@media (max-width:1550px) {
+    .pageWrap {
+        width: 70%;
+        min-width: 70%;
+    }
+}
+
+input,
+textarea,
+button {
+    border-radius: 5px;
+    border: 1.5px solid hwb(0 70% 30%);
+}
+
+.collapse {
+    display: none;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.closebutton {
+    width: 1rem !important;
+    height: 1rem !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p button {
+    position: relative;
+    top: -3.5vh;
+    left: 100%;
+}
+
+.lift {
+    position: relative;
+    top: -3vh;
+}
+
+.background-color {
+    margin: 0 auto;
+    width: 54%;
+    background-color: #ffffffb6;
+}
+
+#topOfPage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width:fit-content;
+}
+
+table {
+    position:sticky;
+    margin-top: 9%;
+    width: 100%;
+    background-color: #ffffffb6;
+}
+
+.headLine {
+    width:50%;
+    font-weight: 700;
+    font-size: medium;
+    border: 2px solid black;
+    letter-spacing: 1px;
+}
+
+th {
+    text-align: right;
+    font-size: .9rem;
+}
+
+.mini-me {
+    font-size: .75rem;
+}
+
+.underLine {
+    border-bottom: 1.5px solid rgb(122, 122, 122);
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.textBox,
+#prbox,
+#fsummary {
+    width: 404%;
+    opacity: 80%;
+}
+
+textarea {
+    resize: none;
+    opacity: 80%;
+}
+
+.center-text {
+    text-align: center !important;
+}
+
+button {
+    height: 1.5rem;
+    width: 7rem;
+}
+
+button:hover {
+    transform: scale(1.1);
+    font-style: italic;
+}
+
+@media print {
+    button {
+        display: none;
+    }
+    a {
+        color: black;
+        text-decoration: none;
+    }
+    .dont-print:placeholder-shown {
+        display: none;
+    }
+    header {
+        position: relative;
+    }
+
+    .headLine {
+        width: 100%;
+    }
+
+    .background-color {
+        width:100%;
+    }
+    }
