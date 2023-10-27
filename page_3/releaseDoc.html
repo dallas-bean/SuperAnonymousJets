@@ -285,9 +285,14 @@
                             <td><textarea class="dont-print" name="prbox" id="prbox" cols="21" rows="7"></textarea></td>
                     </tr>
     <!-- INTERNATIONAL -->
+                    <tr>
+                        <th class="underLine">International?</th>
+                        <td class="center">YES<input type="checkbox" name="YES" class="YES" onclick="one()">NO<input type="checkbox" name="NO" class="NO"></td>
+                        <td></td>
+                </tr>
                     <tr class="center-text">
                         <th></th>
-                        <th class="center-text"><button id="boot" class="" onclick="one(), two()">International?</button></th>
+                        <th class="center-text"></th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -296,24 +301,12 @@
                                 var element = document.getElementById('international');
                                 element.classList.toggle("collapse");
                             }
-                            function two() {
-                                var element = document.getElementById('boot');
-                                element.classList.toggle("collapse");
-                            }
-                            function expand() {
-                                var element = document.getElementById('addLegs');
-                                element.classList.toggle("collapse");
-                            }
-                            function expandtwo() {
-                                var element = document.getElementById('addWeather');
-                                element.classList.toggle("collapse");
-                            }
                         </script>
                     </tr>
     
                     <tbody id="international" class="collapse">
                         <tr class="center-text">
-                            <th><button onclick="one(), two()">hide</button></th>
+                            <th></th>
                             <th></th>
                             <th></th>
                             <th class="center-text">International</th>
