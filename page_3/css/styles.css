@@ -167,3 +167,18 @@ button {
             min-width: 70%;
         }
     }
+
+
+    .fadeIn {
+        animation-name: menuSlideOpen;
+        animation-duration: 1s;
+    }
+
+    @keyframes menuSlideOpen {
+        0% {
+            opacity: 0%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
