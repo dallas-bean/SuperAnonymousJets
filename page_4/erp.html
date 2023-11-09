@@ -9,7 +9,7 @@
 <body>
     <main>
         <div class="wrap">
-            <table>
+            <table id="tableOne">
                 <tr>
                     <th colspan="2" class="bgTwo"><span class="bigText">Initial Notification of an Aircraft Incident / Accident</span> <br> COMPLETE WHEN RECEIVING NOTIFICATION OF A SIGNIFICANT AVIATION EVENT</th>
                     <td></td>
@@ -78,11 +78,54 @@
                     <th class="slideRight">Detailed Description of Incident / Accident: <br><span class="smallText italic">Details of events <br> First responder information <br> Status of passengers and crew</span></th>
                     <td><textarea cols="15" rows="10" class="fillSpace"></textarea></td>
                 </tr>
+            </table><br>
+        <div class="dont-print">
+            <table id="tableTwo">
                 <tr>
-                    <th colspan="2" class="bgOne"><span class="button-box"><button type="button" onclick="window.print();return false" class="p-button">Print to PDF</button></th>
+                    <th colspan="4" class="bgTwo"><span class="bigText">Initial Notification of an Aircraft Incident / Accident (continued)</th>
+                    <td></td>
+                    <td></td>
                     <td></td>
                 </tr>
-            </table>                
+                <tr>
+                    <td class="bold centerText" style="width: 5%;">Step</td>
+                        <td class="bold centerText" style="width: 55%;">Action</td>
+                        <td class="bold centerText" style="width: 20%;">Accomplished by</td>
+                        <td class="bold centerText" style="width: 20%;">date/time</td>
+                </tr>
+                <tr class="bgOne">
+                    <td class="bold centerText">1</td>
+                        <td>Gather and record as much detail as possible from the caller, using the form above as a reference.</td>
+                        <td><input type="text" class="fillSpace"></td>
+                        <td><input type="datetime-local" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <td class="bold centerText">2</td>
+                        <td class="centerText">By the most expeditious means possible, contact a Company Officer listed <a href="https://sunairjets.sharepoint.com/sites/FlightControl/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FFlightControl%2FShared%20Documents%2FEMERGENCY%2DRESPONSE%5FInitial%2DNotification%2DChecklist%2Epdf&parent=%2Fsites%2FFlightControl%2FShared%20Documents" target="_blank">here</a> and provide the information above. <br><span class="red">Note: Preliminary notification requires <span class="underLine">POSITIVE</span> voice communication with one person on the list. Use of voicemail, text messages and/or email is <span class="underLine">not</span> an acceptable means of notification.</span><br><span class="bold">Only the individuals listed above have the authority to deploy the ERP and activate the EOC.</span></td>
+                        <td><input type="text" class="fillSpace"></td>
+                        <td><input type="datetime-local" class="fillSpace"></td>
+                </tr>
+                <tr class="bgOne">
+                    <td class="bold centerText">3</td>
+                        <td class="centerText">Start the <a href="../page_6/ICL.html" target="_blank">Communications Log</a> and record all inbound and outbound communications</td>
+                        <td><input type="text" class="fillSpace"></td>
+                        <td><input type="datetime-local" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <td class="bold centerText">4</td>
+                        <td class="centerText">Secure this form and the communications log and provide to the Emergency Operations Center Director</td>
+                        <td><input type="text" class="fillSpace"></td>
+                        <td><input type="datetime-local" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <th colspan="4" class="bgOne"><span class="button-box"><button type="button" onclick="window.print();return false" class="p-button">Print to PDF</button></th>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <br><br>
+        <img src="./img/stop-sign.png" alt="Stop sign">
+        <p style="border: 2px solid red; margin-bottom: 20px; margin-top: 10px;"><span class="red bold">Wait for further instructions and do not discuss this information with internal or external parties - unless in the course of performing emergency response duties.</span></p>
         </div>
     </main> 
 </body>
