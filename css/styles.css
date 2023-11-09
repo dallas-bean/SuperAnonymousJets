@@ -151,3 +151,14 @@ h1 img {
     font-family: Orbitron;
     letter-spacing: 4px;
 }
+
+footer {
+    position: absolute;
+    margin: 0 auto;
+    top: 80%;
+    left: 80%;
+}
+
+footer img {
+    border-radius: 10px;
+}
