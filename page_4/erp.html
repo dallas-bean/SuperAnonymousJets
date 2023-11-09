@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  user-scalable=0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Emergency Response Procedure</title>
+</head>
+<body>
+    <main>
+        <div class="wrap">
+            <table>
+                <tr>
+                    <th colspan="2" class="bgTwo"><span class="bigText">Initial Notification of an Aircraft Incident / Accident</span> <br> COMPLETE WHEN RECEIVING NOTIFICATION OF A SIGNIFICANT AVIATION EVENT</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="bgOne">Caller Information</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Date / Time of Call (with time zone)</th>
+                    <td><input type="datetime-local" id="date"></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Caller's Name:</th>
+                    <td><input type="text" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Caller's Phone Number:</th>
+                    <td><input type="text" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Caller's Organization:</th>
+                    <td><input type="text" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Caller's Title / Role:</th>
+                    <td><input type="text" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Organization's Phone Number (not a cell #):</th>
+                    <td><input type="text" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="bgOne">Aircraft Information</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Registration Number:</th>
+                    <td><input type="text" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Type / Model:</th>
+                    <td><input type="text" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Color and/or General Description:</th>
+                    <td><input type="text" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="bgOne">Incident / Accident Information</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Location of Accident: <br> <span class="smallText italic">Airport and/or closest town</span></th>
+                    <td><input type="text" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Time / Time Zone:</th>
+                    <td><input type="text" class="fillSpace"></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Source of Information - Contact information: <br><span class="smallText italic">Name / Phone / Organization / Role or Title if caller is not the direct source of info (e.g. the ATC Tower notified the caller of the accident)</span></th>
+                    <td><textarea cols="15" rows="5" class="fillSpace"></textarea></td>
+                </tr>
+                <tr>
+                    <th class="slideRight">Detailed Description of Incident / Accident: <br><span class="smallText italic">Details of events <br> First responder information <br> Status of passengers and crew</span></th>
+                    <td><textarea cols="15" rows="10" class="fillSpace"></textarea></td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="bgOne"><span class="button-box"><button type="button" onclick="window.print();return false" class="p-button">Print to PDF</button></th>
+                    <td></td>
+                </tr>
+            </table>                
+        </div>
+    </main> 
+</body>
+</html>
