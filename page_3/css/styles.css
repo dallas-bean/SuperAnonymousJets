@@ -50,6 +50,11 @@ header {
     z-index: 99;
 }
 
+header img {
+    border-radius: 180px;
+    padding-top: 2px;
+}
+
 .background-color {
     margin: 0 auto;
     width: 59%;
@@ -60,7 +65,7 @@ header {
 
 table {
     position:sticky;
-    margin-top: 11%;
+    margin-top: 17.5%;
     width: 100%;
     background-color: #ffffffb6;
     border-radius: 10px;
