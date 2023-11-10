@@ -159,6 +159,19 @@ button {
         width: 100%;
     }
 
+    table {
+        transform: scale(0.8);
+        padding-left: 3%;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        margin-top: 0;
+        width: 90% !important;
+    }
+    th {
+        width: 15%;
+    }
+
     }
 
     @media (max-width:1550px) {
