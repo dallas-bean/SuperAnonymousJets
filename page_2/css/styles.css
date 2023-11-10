@@ -61,6 +61,11 @@ header {
     z-index: 99;
 }
 
+header img {
+    border-radius: 180px;
+    padding-top: 2px;
+}
+
 .closebutton {
     width: 1rem !important;
     height: 1rem !important;
@@ -99,7 +104,7 @@ p button {
 
 table {
     position:relative;
-    margin: 13% auto;
+    margin: 20% auto;
     width: 90%;
     background-color: #ffffffb6;
     border-radius: 10px;
@@ -183,6 +188,7 @@ button:hover {
         transform: scale(0.8);
         padding-left: 3%;
         width: 90% !important;
+        margin-top: 0;
     }
     th {
         width: 15%;
