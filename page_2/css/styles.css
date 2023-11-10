@@ -19,6 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #warning1,
@@ -98,8 +99,8 @@ p button {
 
 table {
     position:relative;
-    margin-top: 13%;
-    width: 100%;
+    margin: 13% auto;
+    width: 90%;
     background-color: #ffffffb6;
     border-radius: 10px;
 }
@@ -176,5 +177,14 @@ button:hover {
 
     .background-color {
         width:100%;
+    }
+
+    table {
+        transform: scale(0.8);
+        padding-left: 3%;
+        width: 90% !important;
+    }
+    th {
+        width: 15%;
     }
     }
