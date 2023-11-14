@@ -94,6 +94,35 @@
             <span id="clockDisplay" onload="showTime()"></span>
         </div>
     <footer>
+        <div class="phone-bank hide" id="phones" onmouseenter="phones()" onmouseleave="phones()">
+            <span>
+                <h3 class="underLine">Phone Extensions</h3>
+                <ul>
+                    <li class="bold">Operations - 303</li>
+                    <li class="bold">Inflight - 307</li>
+                    <li class="bold">Flight Control - 321</li>
+                    <li class="bold">Maintenance - 333</li>
+                    <li class="bold">Charter - 335</li>
+                    <li>Dallas & Amanda - 329</li>
+                    <li>Armando - 327</li>
+                    <li>Rob C. (MX) - 308</li>
+                    <li>Naima (VNY) - 330</li>
+                    <li>Line Service - 313</li>
+                    <li>Front Desk - 300</li>
+                    <li>Justin - 306</li>
+                    <li>Makayla - 360</li>
+                    <li>Karen - 373</li>
+                    <li>Kim - 372</li>
+                    <li>Nidia - 346</li>
+                    <li>Brian - 302</li>
+                    <li>Ed. F - 398</li>
+                    <li>James - 324</li>
+                    <li>Crystal - 383</li>
+                    <li>Chloe - 305</li>
+                </ul>
+            </span>
+        </div>
+        <img src="./img/phone-icon.png" alt="Phone-bank" id="phone-icon" onmouseenter="phones()" onmouseleave="phones()">
         <a href="./page_4/erp.html" target="_blank"><img src="./img/Emergency response.gif" alt="Emergency Response"></a>
     </footer>
 </body>
@@ -136,6 +165,10 @@ showTime();
 function display() {
         var element = document.getElementById('portals');
         element.classList.toggle("hide");
+}
+
+function phones() {
+    document.getElementById("phones").classList.toggle("hide");
 }
 </script>
 </html>
