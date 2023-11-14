@@ -98,27 +98,33 @@
             <span>
                 <h3 class="underLine">Phone Extensions</h3>
                 <ul>
-                    <li class="bold">Operations - 303</li>
-                    <li class="bold">Inflight - 307</li>
-                    <li class="bold">Flight Control - 321</li>
-                    <li class="bold">Maintenance - 333</li>
-                    <li class="bold">Charter - 335</li>
+                    <li class="underLine bold exclude">Departmental</li>
+                    <li>Front Desk - 300</li>
+                    <li>Operations - 303</li>
+                    <li>Inflight - 307</li>
+                    <li>Line Service - 313</li>
+                    <li>Flight Control - 321</li>
+                    <li>Maintenance - 333</li>
+                    <li>Charter - 335</li>
+                    <li class="underLine bold exclude">Flight Control</li>
                     <li>Dallas & Amanda - 329</li>
                     <li>Armando - 327</li>
-                    <li>Rob C. (MX) - 308</li>
-                    <li>Naima (VNY) - 330</li>
-                    <li>Line Service - 313</li>
-                    <li>Front Desk - 300</li>
+                    <li class="underLine bold exclude">A.C. Management</li>
                     <li>Justin - 306</li>
                     <li>Makayla - 360</li>
                     <li>Karen - 373</li>
+                    <li class="underLine bold exclude">Human Resources</li>
                     <li>Kim - 372</li>
                     <li>Nidia - 346</li>
+                    <li class="underLine bold exclude">Miscellaneous</li>
                     <li>Brian - 302</li>
                     <li>Ed. F - 398</li>
+                    <li>Rob C. (MX) - 308</li>
                     <li>James - 324</li>
+                    <li>Brittany C. - 339</li>
                     <li>Crystal - 383</li>
                     <li>Chloe - 305</li>
+                    <li>Naima (VNY) - 330</li>
                 </ul>
             </span>
         </div>
@@ -135,8 +141,8 @@
     var hthree = date.getHours() + 7; // ZULU
     var m = date.getMinutes(); // 0 - 59
     var s = date.getSeconds(); // 0 - 59
-    var pdt = "PST";
-    var edt = "EST";
+    var pdt = "PDT";
+    var edt = "EDT";
     var zulu = "Z";
     
     h = (h < 10) ? "0" + h : h;
