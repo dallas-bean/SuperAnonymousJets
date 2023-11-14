@@ -56,6 +56,10 @@ h1 img {
     font-weight: bold;
 }
 
+.underLine {
+    text-decoration: underline;
+}
+
 .gridify {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -160,10 +164,35 @@ h1 img {
 footer {
     position: absolute;
     margin: 0 auto;
-    top: 80%;
-    left: 80%;
+    width: 100%;
+    top: 75%;
+    z-index: 99;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 footer img {
     border-radius: 10px;
+}
+
+.phone-bank {
+    position: absolute;
+    top: -50vh;
+    background-color: #17233a;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.phone-bank ul {
+    align-items: end;
+    padding-right: 10px;
+}
+
+.phone-bank ul li:hover {
+    background-color: #203252;
+    color: #e4c78a;
 }
