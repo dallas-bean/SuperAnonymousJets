@@ -67,7 +67,7 @@ h1 img {
         }
 
 .top {
-    z-index: 1;
+    z-index: 99;
 }
 
 /* media queries */
@@ -90,6 +90,23 @@ h1 img {
         }
         .clock {
             display: none;
+        }
+    }
+
+    @media screen and (max-height:480px) {
+        * {
+            transform: scale(0.9);
+        }
+        
+        .sidebarWrap,
+        .clock {
+            display: none;
+            visibility: hidden;
+        }
+
+        body {
+            background-image: url(../img/mobile_bg.png);
+            background-position: center top;
         }
     }
     
