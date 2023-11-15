@@ -65,7 +65,7 @@ header img {
 
 table {
     position:sticky;
-    margin-top: 19%;
+    margin-top: 17.5%;
     width: 100%;
     background-color: #ffffffb6;
     border-radius: 10px;
@@ -183,6 +183,18 @@ button {
         .pageWrap {
             width: 70%;
             min-width: 70%;
+        }
+    }
+
+    @media screen and (max-width: 1800px) {
+        table {
+            margin-top: 19%;
+        }
+    }    
+
+    @media screen and (max-width: 1500px) {
+        table {
+            margin-top: 20%;
         }
     }
 
