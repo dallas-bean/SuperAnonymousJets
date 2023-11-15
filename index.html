@@ -7,7 +7,28 @@
     <title>SAJFC Directory</title>
 </head>
 <body>
-    <header><h1><img src="./img/header-five.png" alt="Super Anonymous Jets Flight Control"></h1></header>
+    <div class="sidebarWrap">
+        <span onclick="sideShow()"><img src="./img/NEWS.png" alt="NEWS" class="excludeTwo" id="newsIcon"></span>
+        <div class="sideBar" id="sidebar">
+            <article class="padme standardArticle">
+                <h3>The Advent of the News!</h3>
+                <p>We've added the News feature here on the website! Check here for any updates to process / procedure <br><span class="date">15Nov23</span></p>
+            </article><hr>
+            <article class="padme standardArticle">
+                <h3><span class="red">Emergency Response</span></h3>
+                <p>We've added a button to the bottom right corner of this page for your use in the event that you are notified of an emergency situation. Direct any questions to dallas &/or Amanda! <br><span class="date">15Nov23</span></p>
+            </article><hr>
+            <article class="padme standardArticle">
+                <h3>Call Bank</h3>
+                <p>We've added a directory of extensions to the bottom left of this page. Just hover over the phone Icon! <br><span class="date">15Nov23</span></p>
+            </article><hr>
+            <article class="padme standardArticle">
+                <h3>"Owner Flight (135)"</h3>
+                <p>Remember, don't select "Owner flight (135)" when building trips in JI.<br><span class="date">14Nov23</span></p>
+            </article>
+        </div>
+    </div>
+    <header><h1><img src="./img/header-five.png" alt="Super Anonymous Jets Flight Control" class="excludeTwo"></h1></header>
     <main>
             <span class="column">
                 <span class="dropdown">
@@ -141,8 +162,8 @@
     var hthree = date.getHours() + 7; // ZULU
     var m = date.getMinutes(); // 0 - 59
     var s = date.getSeconds(); // 0 - 59
-    var pdt = "PDT";
-    var edt = "EDT";
+    var pdt = "PST";
+    var edt = "EST";
     var zulu = "Z";
     
     h = (h < 10) ? "0" + h : h;
@@ -175,6 +196,10 @@ function display() {
 
 function phones() {
     document.getElementById("phones").classList.toggle("hide");
+}
+
+function sideShow() {
+    document.getElementById("sidebar").classList.toggle("animateMe");
 }
 </script>
 </html>
