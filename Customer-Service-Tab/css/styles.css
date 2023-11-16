@@ -142,7 +142,7 @@ h1 img {
         color: white;
     }
     
-    img:hover:not(h1 img) {
+    img:hover:not(.excludeTwo) {
         transform: scale(0.9);
     }
 /* drop-menu logic */
@@ -159,4 +159,49 @@ h1 img {
     font-size: 2rem;
     font-family: Orbitron;
     letter-spacing: 4px;
+}
+footer {
+    position: absolute;
+    margin: 0 auto;
+    width: 100%;
+    top: 75%;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer img {
+    border-radius: 10px;
+}
+
+footer img:hover {
+    transform: scale(1.1);
+}
+
+.phone-bank {
+    position: absolute;
+    top: -50vh;
+    background-color: #17233a;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 99;
+}
+
+.phone-bank ul {
+    align-items: end;
+    padding-right: 10px;
+}
+
+.phone-bank ul li:hover:not(.exclude) {
+    color: #e4c78a;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+    visibility: hidden;
 }
