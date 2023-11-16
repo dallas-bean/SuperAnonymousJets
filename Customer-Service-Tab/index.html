@@ -7,7 +7,7 @@
     <title>SAJCSR Directory</title>
 </head>
 <body>
-    <header><h1><img src="./img/header-img.png" alt="Super Anonymous Jets Customer Service"></h1></header>
+    <header><h1><img src="./img/header-img.png" alt="Super Anonymous Jets Customer Service" class="excludeTwo"></h1></header>
     <main>
             <span class="column">
                 <span class="dropdown">
@@ -19,6 +19,7 @@
                         <a href="https://sunairjets.sharepoint.com/:x:/r/sites/CSRFrontDesk/_layouts/15/Doc.aspx?sourcedoc=%7BFB665D0E-DA8C-4B96-84E1-E8156BBBD36A%7D&file=Fly-By%20Report%202023.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1" target="_blank">Fly-by Sharepoint</a>
                         <a href="https://sunairjets.sharepoint.com/:w:/s/CSRTeam/EY9iWz5n7ipIuJcPU84y3MIBg4po1Qd8Hh2C0r035IyAQw?e=ZDMrmz&wdLOR=cEA6C82A8-8D8A-44CD-B19E-E1099F99669A" target="_blank">CSR Shift Swap Request Form</a>
                         <a href="https://sunairjets.sharepoint.com/sites/CSRTeam/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FCSRTeam%2FShared%20Documents%2FGeneral%2FCSR%20Schedule&p=true&ga=1" target="_blank">Schedule</a>
+                        <a href="https://sunairjets.sharepoint.com/sites/SAJLandingPage/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FSAJLandingPage%2FShared%20Documents%2FA%2DERP%5FVolume%5F1%5FRev%5F14%2Epdf&parent=%2Fsites%2FSAJLandingPage%2FShared%20Documents" target="_blank">ERP Manual</a>
                     </div>
                 </span>
             </span>
@@ -93,6 +94,44 @@
         <div class="clock">
             <span id="clockDisplay" onload="showTime()"></span>
         </div>
+        <footer>
+            <div class="phone-bank hide" id="phones" onmouseenter="phones()" onmouseleave="phones()">
+                <span>
+                    <h3 class="underLine">Phone Extensions</h3>
+                    <ul>
+                        <li class="underLine bold exclude">Departmental</li>
+                        <li>Front Desk - 300</li>
+                        <li>Operations - 303</li>
+                        <li>Inflight - 307</li>
+                        <li>Line Service - 313</li>
+                        <li>Flight Control - 321</li>
+                        <li>Maintenance - 333</li>
+                        <li>Charter - 335</li>
+                        <li class="underLine bold exclude">Flight Control</li>
+                        <li>Dallas & Amanda - 329</li>
+                        <li>Armando - 327</li>
+                        <li class="underLine bold exclude">A.C. Management</li>
+                        <li>Justin - 306</li>
+                        <li>Makayla - 360</li>
+                        <li>Karen - 373</li>
+                        <li class="underLine bold exclude">Human Resources</li>
+                        <li>Kim - 372</li>
+                        <li>Nidia - 346</li>
+                        <li class="underLine bold exclude">Miscellaneous</li>
+                        <li>Brian - 302</li>
+                        <li>Ed. F - 398</li>
+                        <li>Rob C. (MX) - 308</li>
+                        <li>James - 324</li>
+                        <li>Brittany C. - 339</li>
+                        <li>Crystal - 383</li>
+                        <li>Chloe - 305</li>
+                        <li>Naima (VNY) - 330</li>
+                    </ul>
+                </span>
+            </div>
+            <img src="../img/phone-icon.png" alt="Phone-bank" class="excludeTwo" id="phone-icon" onmouseenter="phones()" onmouseleave="phones()">
+            <a href="../page_4/erp.html" target="_blank"><img src="../img/Emergency response.gif" alt="Emergency Response" class="excludeTwo"></a>
+        </footer>
 </body>
 
 <script>
@@ -133,6 +172,14 @@ showTime();
 function display() {
         var element = document.getElementById('portals');
         element.classList.toggle("hide");
+}
+
+function phones() {
+    document.getElementById("phones").classList.toggle("hide");
+}
+
+function sideShow() {
+    document.getElementById("sidebar").classList.toggle("animateMe");
 }
 </script>
 </html>
