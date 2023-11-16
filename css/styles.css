@@ -280,9 +280,6 @@ footer img {
 .standardArticle {
     background-color: antiquewhite;
     box-shadow: 5px 5px 5px #203252;
-}
-
-.standardArticle p {
     background-image: url(../img/SAJ.png);
     background-size: 100px;
     background-repeat: no-repeat;
