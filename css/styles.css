@@ -232,14 +232,14 @@ footer img {
 
 @media screen and (max-width: 1800px) {
     .sidebarWrap {
-        left: -1.3vw;
+        left: -1.4vw;
     }
 }
 
     .sideBar {
         position: relative;
         background-color: #203252af;
-        left: -15vw;
+        left: -16vw;
         width: 14vw;
         height: 100%;
         overflow-y: scroll;
@@ -296,3 +296,4 @@ footer img {
     font-style: italic;
     text-align: right;
 }
+
