@@ -21,6 +21,27 @@
             <section>
                 <table>
                     <tr>
+                        <th class="underLine">Is this an EJM (NetJets) trip?</th>
+                        <td class="center-text">YES<input type="checkbox" name="YES" class="YES" onclick="three()">NO<input type="checkbox" name="NO" class="NO"></td>
+                        <td></td>
+                    </tr>
+                    <tbody id="ejm" class="collapse">
+                        <tr>
+                            <th class="underLine">In-op amenities?</th>
+                            <td class="center-text">YES<input type="checkbox" name="YES" class="YES" id="q4" onclick="popup4()">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td><p id="warning4" style="display: none;">Record in summary and Notify Client!<button class="closebutton" id="closebutton1" onclick="closeout4()">&times;</button></p><input type="text" class="textBox"></td>
+                        </tr>
+                        <tr>
+                            <th class="underLine"><span id="crewStandardsPopup" onclick="popup5()">Crewing standards met?</span></th>
+                            <td class="center-text">YES<input type="checkbox" name="YES" class="YES">NO<input type="checkbox" name="NO" class="NO"></td>
+                            <td>
+                                <p id="picStandards" style="display: none;"><button id="nextPlease" onclick="closeout5()">SIC -></button><br><img src="./img/pic.png" alt="picStandards"><br><button id="closeTheLoop" onclick="closeout7()">Close</button></p>
+                                <p id="sicStandards" style="display: none;"><button id="backPlease" onclick="closeout6()"><- PIC</button><br><img src="./img/sic.png" alt="sicStandards"><br><button id="closeTheLoop" onclick="closeout7()">Close</button></p>
+                                <input type="text" class="textBox">
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tr>
                         <th class="underLine" style="width: 15%">Airport Identifier</th>
                             <td><input type="text" class="dont-print" placeholder="ICAO"></td>
                             <td><input type="text" class="dont-print" placeholder="ICAO"></td>
