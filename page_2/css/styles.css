@@ -24,7 +24,10 @@ body {
 
 #warning1,
 #warning2,
-#warning3 {
+#warning3,
+#warning4,
+#picStandards,
+#sicStandards {
     position: absolute;
     padding: 1rem;
     padding-bottom: 0;
@@ -193,4 +196,39 @@ button:hover {
     th {
         width: 15%;
     }
+    }
+
+    #crewStandardsPopup {
+        color: #2779f6;
+    }
+
+    #crewStandardsPopup:hover {
+        cursor: pointer;
+        font-size: calc();
+    }
+
+    #nextPlease,
+    #backPlease {
+        position: relative;
+        width: fit-content;
+        font-weight: bold;
+    }
+
+    #nextPlease {
+        left: 90%;
+    }
+
+    #backPlease {
+        left: 0;
+    }
+
+    #closeTheLoop {
+        position: relative;
+        left: 40%;
+        margin-top: 2rem;
+    }
+
+    #picStandards {
+        height: fit-content;
+        width: fit-content;
     }
