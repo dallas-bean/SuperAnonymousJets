@@ -21,11 +21,11 @@
                     <table>
                     <tr>
                         <th class="underLine">Airport Identifier</th>
-                            <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                            <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                            <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                            <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                            <td><input type="text" class="dont-print" placeholder="ICAO" id="dont-leave"></td>
+                            <td><input type="text" class="dont-print" id="icao1" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                            <td><input type="text" class="dont-print" id="icao2" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                            <td><input type="text" class="dont-print" id="icao3" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                            <td><input type="text" class="dont-print" id="icao4" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                            <td><input type="text" class="dont-print" id="icao5" oninput="autoPopulateICAO()" placeholder="ICAO" id="dont-leave"></td>
                     </tr>
                     <tr>
                         <th class="underLine">ETA / ETD (All times in Zulu)</th>
@@ -38,11 +38,11 @@
                     <tbody id="addLegs" class="collapse">
                         <tr>
                             <th><i>Continued</i></th>
-                                <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                                <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                                <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                                <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                                <td><input type="text" class="dont-print" placeholder="ICAO"></td>
+                                <td><input type="text" class="dont-print" id="icao6" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                                <td><input type="text" class="dont-print" id="icao7" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                                <td><input type="text" class="dont-print" id="icao8" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                                <td><input type="text" class="dont-print" id="icao9" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                                <td><input type="text" class="dont-print" id="icao10" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
                         </tr>
                         <tr>
                             <th class="underLine"></th>
@@ -116,11 +116,11 @@
     
                     <tr>
                         <th class="underLine">Weather <a href="https://www.aviationweather.gov/" target="_blank">(TAF)</a>?</th>
-                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" id="icao1a" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" id="icao2a" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" id="icao3a" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" id="icao4a" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" id="icao5a" placeholder="ICAO"></td>
                     </tr>
     
                     <tr>
@@ -143,11 +143,11 @@
                     <tbody id="addWeather" class="collapse">
                         <tr>
                         <th class="underLine"><em>Continued</em><a href="https://www.aviationweather.gov/" target="_blank"></a></th>
-                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
-                        <td><input type="text" class="dont-print" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" id="icao6a" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" id="icao7a" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" id="icao8a" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" id="icao9a" placeholder="ICAO"></td>
+                        <td><input type="text" class="dont-print" id="icao10a" placeholder="ICAO"></td>
                     </tr>
     
                     <tr>
@@ -448,5 +448,35 @@
                 </section>
             </div>
         </main>
+<script>    
+    function autoPopulateICAO() {
+        let loc1 = document.getElementById("icao1");
+        let loc2 = document.getElementById("icao2");
+        let loc3 = document.getElementById("icao3");
+        let loc4 = document.getElementById("icao4");
+        let loc5 = document.getElementById("icao5");
+        let loc6 = document.getElementById("icao6");
+        let loc7 = document.getElementById("icao7");
+        let loc8 = document.getElementById("icao8");
+        let loc9 = document.getElementById("icao9");
+        let loc10 = document.getElementById("icao10");
+        let loc1a = document.getElementById("icao1a");
+        let loc2a = document.getElementById("icao2a");
+        let loc3a = document.getElementById("icao3a");
+        let loc4a = document.getElementById("icao4a");
+        let loc5a = document.getElementById("icao5a");
+        let loc6a = document.getElementById("icao6a");
+        let loc7a = document.getElementById("icao7a");
+        let loc8a = document.getElementById("icao8a");
+        let loc9a = document.getElementById("icao9a");
+        let loc10a = document.getElementById("icao10a");
+    
+        for (let i = 1; i <= 10; i++) {
+            const locElement = document.getElementById(`icao${i}`);
+            const locElementA = document.getElementById(`icao${i}a`)
+    
+            locElementA.value = locElement.value;
+        }}
+</script>
 </body>
 </html>
