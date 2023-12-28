@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/script.js"></script>
+    <title>Flight Control Hub</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="mainNav" class="cSpan">
+                <li><span onclick="unhide('button1', 'news')">News</span></li>
+                <li><span onclick="unhide('button2', 'documents')">Documents</span></li>
+                <li class="exclude"><img src="./img/logo.png" alt="Super Anonymous Jets Flight Control" id="logo"></li>
+                <li><span onclick="unhide('button3', 'portals'), fade()">Portals</span></li>
+                <li><span onclick="unhide('button4', 'resources')">Resources</span></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="news" class="collapse slide2 navToggle newsWrap">
+            <div class="news">
+                <span>
+                    <article class="padme standardArticle">
+                        <h3>Updates to DCL items and procedure!</h3>
+                        <p>Check FCPD chat for details!</p>
+                        <p><span class="date">28Dec23</span></p>
+                    </article><hr>
+                    <article class="padme standardArticle">
+                        <h3>Congrats Mae!</h3>
+                        <p>Congratulations to Mae for winning best decorated desk!<br><img src="./img/confetti.png" alt="confetti"><br><span class="date"></span></p>
+                        <p><span class="date">28Dec23</span></p>
+                    </article><hr>
+                    <article class="padme standardArticle">
+                        <h3 class="red">FUEL ADVISOR IMPLEMENTATION!</h3>
+                        <p>Use of the Fuel Advisor feature in foreflight has officially been implemented. Refer to FCPD for more details<br><span class="date">04Dec23</span></p>
+                    </article><hr>
+                    <article class="padme standardArticle">
+                        <h3>Updated Email contact for Jetworx!</h3>
+                        <p>Check the FCPD chat in teams for further details<br><span class="date">27Nov23</span></p>
+                    </article><hr>
+                    <article class="padme standardArticle">
+                        <h3>Team schedule</h3>
+                        <p>Having a hard time finding the schedule? All extraneous versions have been removed. This can now only be found on the website under documents > calendar.<br><span class="date">20Nov23</span></p>
+                    </article><hr>
+                    <article class="padme standardArticle">
+                        <h3>CONGRATS ANNA AND JOSEPH!</h3>
+                        <p>Congratulations on the pregnancy and best wishes going forward! Don't forget to vote for the names of your choice!<br><img src="./img/confetti.png" alt="confetti"><br><span class="date">16Nov23</span></p>
+                    </article>
+                </span>
+            </div>
+        </div>
+        <div id="documents" class="collapse slide navToggle">
+            <ul class="cSpan">
+                <li><a href="./page_2/fere.html" target="_blank">Feasibility Report</a></li>
+                <li><a href="./page_3/releaseDoc.html" target="_blank">24 Hour Release Doc</a></li>
+                <li><a href="https://sunairjets.sharepoint.com/:x:/r/sites/Dispatch/_layouts/15/Doc.aspx?sourcedoc=%7B938ce8bf-c86d-4124-ae9c-e1b9f3b4fdc5%7D&action=view" target="_blank">Daily Checklist</a></li>
+                <li><a href="./page_5/calendar.html" target="_blank" class="link">Calendar</a></li>
+                <li><a href="https://sunairjets.sharepoint.com/sites/FlightControl" target="_blank">Pubs Library</a></li>
+            </ul>
+        </div>
+        <div id="portals" class="collapse navToggle">
+            <table>
+                <tr>
+                    <td><a href="https://front.com/" target="_blank" class="link">
+                        <img src="./img/Front-Icon.png" alt="Front" name="frontImg" class="icon">
+                        </a></td>
+                    <td><a href="https://www.jetinsight.com/" target="_blank" class="link">
+                        <img src="./img/JetInsight-Icon.png" alt="Jet Insight" name="jetInsightImg" class="icon">
+                        </a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.satcomdirect.com/" target="_blank" class="link">
+                        <img src="./img/Satcom-Icon.png" alt="Satcom" name="satcomImg" class="icon">
+                        </a></td>
+                    <td><a href="https://plan.foreflight.com/" target="_blank" class="link">
+                        <img src="./img/Foreflight-Icon.png" alt="foreflight" name="foreflightImg" class="icon">
+                        </a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://uvgo.universalweather.com/auth/login" target="_blank" class="link">
+                        <img src="./img/Universal-Icon.png" alt="universal" name="universalImg" class="icon">
+                        </a></td>
+                    <td><a href="https://www.flightbridge.com/" target="_blank" class="link">
+                        <img src="./img/flightbridge.png" alt="flightbridge" name="flightbridgeicon" class="icon">
+                        </a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://app.wyvern.systems/auth/login" target="_blank" class="link">
+                        <img src="./img/wyvern-icon.png" alt="Wyvern" name="wyvern-icon" class="icon">
+                        </a></td>
+                    <td><a href="https://sunairjets.voippbxsite.net/App" target="_blank" class="link">
+                        <img src="./img/voip-icon.png" alt="Voip" name="voip-icon" class="icon">
+                        </a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://secure2.saashr.com/ta/SunAir.clock?login=0&msg=" target="_blank" class="link">
+                        <img src="./img/Timecard-Icon.png" alt="Timesheets" name="timesheetsImg" class="icon">
+                        </a></td>
+                    <td><a href="https://acsf.quickbase.com/db/main?a=SignIn&nexturl=https%3A%2F%2Facsf.quickbase.com%2Fdb%2Fbqk6aczxa%3Fa%3Dtd&rc=psi" target="_blank" class="link">
+                        <img src="./img/Safety-Reports-icon.png" alt="Safety Reports" name="safetyReportImg" class="icon">
+                        </a></td>
+                </tr>
+            </table>
+        </div>
+        <div id="resources" class="collapse slide navToggle">
+            <ul class="cSpan">
+                <li><a href="https://www.notams.faa.gov/dinsQueryWeb/" target="_blank">NOTAMS</a></li>
+                <li><a href="https://tfr.faa.gov/tfr2/list.html" target="_blank">TFR's</a></li>
+                <li><a href="https://www.aviationweather.gov/" target="_blank">Weather (TAF's)</a></li>
+                <li><a href="https://www.weather.gov/" target="_blank">Weather (LR-domestic)</a></li>
+                <li><a href="https://www.fltplan.com/#" target="_blank">Fltplan.com</a></li>
+                <li><a href="https://www.boeing.com/commercial/noise/list.page" target="_blank">Noise Restrictions</a></li>
+                <li><a href="https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/advanced/" target="_blank">AFD's</a></li>
+                <li><a href="https://www.fly.faa.gov/flyfaa/plaintext.html" target="_blank">Ground stops</a></li>
+                <li><a href="https://lp.signatureflight.com/travel-alerts" target="_blank">Signature FBO alerts</a></li>
+                <li><a href="https://www.nhc.noaa.gov/cyclones/" target="_blank">Hurricanes</a></li>
+                <li><a href="https://www.worldtimebuddy.com/" target="_blank">Time conversion table</a></li>
+                <li><a href="https://www.time.gov/?t=24" target="_blank">Time zones</a></li>
+            </ul>
+        </div>
+        <div class="phone-bank collapse" id="phones" onmouseenter="phones()" onmouseleave="phones()">
+            <span>
+                <h3 class="underLine">Phone Extensions</h3>
+                <ul>
+                    <li class="underLine bold exclude">Departmental</li>
+                    <li>Front Desk - 300</li>
+                    <li>Operations - 303</li>
+                    <li>Inflight - 307</li>
+                    <li>Line Service - 313</li>
+                    <li>Flight Control - 321</li>
+                    <li>Maintenance - 333</li>
+                    <li>Charter - 335</li>
+                    <li class="underLine bold exclude">Flight Control</li>
+                    <li>Dallas & Amanda - 329</li>
+                    <li>Armando - 327</li>
+                    <li class="underLine bold exclude">A.C. Management</li>
+                    <li>Justin - 306</li>
+                    <li>Makayla - 360</li>
+                    <li>Karen - 373</li>
+                    <li class="underLine bold exclude">Human Resources</li>
+                    <li>Kim - 372</li>
+                    <li>Nidia - 346</li>
+                    <li class="underLine bold exclude">Accounting</li>
+                    <li>Chloe - 305</li>
+                    <li>Katie - 308</li>
+                    <li class="underLine bold exclude">Miscellaneous</li>
+                    <li>Brian - 302</li>
+                    <li>Ed. F - 398</li>
+                    <li>Rob C. (MX) - 308</li>
+                    <li>James - 324</li>
+                    <li>Brittany C. - 339</li>
+                    <li>Crystal - 383</li>
+                    <li>Naima (VNY) - 330</li>
+                </ul>
+            </span>
+        </div>
+    </main>
+    <footer>
+        <ul class="cSpanWide">
+            <li><img src="./img/phone-icon.png" alt="Phone list" onmouseenter="phones()" onmouseleave="phones()"></li>
+            <li><a href="./page_4/erp.html" target="_blank"><img src="./img/Emergency response.gif" alt="Emergency Response"></a></li>
+        </ul>
+    </footer>
+</body>
+</html>
