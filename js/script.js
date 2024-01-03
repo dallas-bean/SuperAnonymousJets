@@ -24,6 +24,10 @@ function fade() {
     document.getElementById("portals").classList.toggle("fadeIn");
 }
 
+function fade1() {
+    document.getElementById("resources").classList.toggle("fadeIn");
+}
+
 function phones() {
     document.getElementById("phones").classList.toggle("collapse");
 }
