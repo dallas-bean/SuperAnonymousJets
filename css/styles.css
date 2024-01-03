@@ -217,8 +217,30 @@
     opacity: 0;
   }
 
+  #resources {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #17233a52;
+    opacity: 0;
+    font-weight: 700;
+  }
+
+  #documents {
+    background-color: #17233a52;
+  }
+
   .icon {
     max-width: 330px !important;
     max-height: 100px !important;
     transform: scale(0.7);
+  }
+
+  .centerMe {
+    text-align: center;
   }
