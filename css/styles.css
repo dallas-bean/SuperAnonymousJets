@@ -244,3 +244,7 @@
   .centerMe {
     text-align: center;
   }
+
+  .centerMe td:hover {
+    transform: scale(1.1);
+  }
