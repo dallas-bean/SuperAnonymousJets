@@ -15,7 +15,7 @@
                 <li><span onclick="unhide('button2', 'documents')">Documents</span></li>
                 <li class="exclude"><img src="./img/logo.png" alt="Super Anonymous Jets Flight Control" id="logo"></li>
                 <li><span onclick="unhide('button3', 'portals'), fade()">Portals</span></li>
-                <li><span onclick="unhide('button4', 'resources')">Resources</span></li>
+                <li><span onclick="unhide('button4', 'resources'), fade1()">Resources</span></li>
             </ul>
         </nav>
     </header>
@@ -105,11 +105,37 @@
                 </tr>
             </table>
         </div>
-        <div id="resources" class="collapse slide navToggle">
-            <ul class="cSpan">
+        <div id="resources" class="collapse navToggle">
+            <table class="centerMe">
+                <tr>
+                    <td><a href="https://www.notams.faa.gov/dinsQueryWeb/" target="_blank">NOTAMS</a></td>
+                    <td><a href="https://tfr.faa.gov/tfr2/list.html" target="_blank">TFR's</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.aviationweather.gov/" target="_blank">Weather (TAF's)</a></td>
+                    <td><a href="https://www.weather.gov/" target="_blank">Weather (LR-domestic)</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.fltplan.com/#" target="_blank">Fltplan.com</a></td>
+                    <td><a href="https://www.boeing.com/commercial/noise/list.page" target="_blank">Noise Restrictions</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/advanced/" target="_blank">AFD's</a></td>
+                    <td><a href="https://nasstatus.faa.gov/" target="_blank">Ground stops</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://lp.signatureflight.com/travel-alerts" target="_blank">Signature FBO alerts</a></td>
+                    <td><a href="https://www.nhc.noaa.gov/cyclones/" target="_blank">Hurricanes</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.worldtimebuddy.com/" target="_blank">Time conversion table</a></td>
+                    <td><a href="https://www.time.gov/?t=24" target="_blank">Time zones</a></td>
+                </tr>
+            </table>
+            <!-- <ul class="cSpan">
                 <li><a href="https://www.notams.faa.gov/dinsQueryWeb/" target="_blank">NOTAMS</a></li>
                 <li><a href="https://tfr.faa.gov/tfr2/list.html" target="_blank">TFR's</a></li>
-                <li><a href="https://aviationweather.gov/data/taf/" target="_blank">Weather (TAF's)</a></li>
+                <li><a href="https://www.aviationweather.gov/" target="_blank">Weather (TAF's)</a></li>
                 <li><a href="https://www.weather.gov/" target="_blank">Weather (LR-domestic)</a></li>
                 <li><a href="https://www.fltplan.com/#" target="_blank">Fltplan.com</a></li>
                 <li><a href="https://www.boeing.com/commercial/noise/list.page" target="_blank">Noise Restrictions</a></li>
@@ -119,7 +145,7 @@
                 <li><a href="https://www.nhc.noaa.gov/cyclones/" target="_blank">Hurricanes</a></li>
                 <li><a href="https://www.worldtimebuddy.com/" target="_blank">Time conversion table</a></li>
                 <li><a href="https://www.time.gov/?t=24" target="_blank">Time zones</a></li>
-            </ul>
+            </ul> -->
         </div>
         <div class="phone-bank collapse" id="phones" onmouseenter="phones()" onmouseleave="phones()">
             <span>
