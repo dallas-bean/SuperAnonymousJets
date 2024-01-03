@@ -184,6 +184,11 @@ header textarea {
         visibility: hidden;
     }
 
+    body {
+        margin-top: 15%;
+    }
+
+
 }
 
 @media screen and (max-height:700px) {
