@@ -98,15 +98,14 @@ th {
     border-bottom: 1px solid black;
 }
 
-#fsummary,
-#prbox,
+#f150,
+#f90,
 .textBox {
     width: 404%;
     opacity: 80%;
 }
 
-#warning3,
-#weatherBox {
+#warning3 {
     position: absolute !important;
     padding: 1rem !important;
     padding-bottom: 0 !important;
