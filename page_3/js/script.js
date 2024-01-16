@@ -17,7 +17,7 @@ var reset = document.getElementById("warning3");
 reset.style.display = "none";
 }
 function popup3() {
-    var checkbox = document.getElementById("q3");
+    var checkbox = document.getElementById("f85");
     var prompt = document.getElementById("warning3");
 
     if (checkbox.checked == true){
@@ -70,4 +70,88 @@ function genWeather() {
             const url = `${baseUrl}${route.join(',')}`;
             window.open(url, '_blank');
         }
+}
+
+function superman() {
+    // Ask the user for a file name
+    const fileName = window.prompt('Enter a file name:', 'formData');
+
+    // If the user cancels or enters an empty name, exit
+    if (!fileName) {
+        return;
+    }
+
+    const saveData = {};
+
+    for (let i = 1; i <= 151; i++) {
+        const element = document.getElementById(`f${i}`);
+        if (element.type === 'checkbox') {
+            saveData[`f${i}`] = element.checked ? 'on' : '';
+        } else {
+            saveData[`f${i}`] = element.value;
+        }
+    }
+
+    for (let i = 1; i <= 10; i++) {
+        const element = document.getElementById(`icao${i}`);
+        if (element.type === 'checkbox') {
+            saveData[`icao${i}`] = element.checked ? 'on' : '';
+        } else {
+            saveData[`icao${i}`] = element.value;
+        }
+    }
+
+    const csvContent = Object.keys(saveData).map(key => `${key},${saveData[key]}`).join('\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+
+    // Append the user-specified file name with .csv extension
+    link.download = `${fileName}.csv`;
+
+    link.click();
+}
+
+function loadDataFromCSV(fileInput) {
+    const file = fileInput.files[0];
+
+    if (file && window.FileReader) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            const csvContent = e.target.result;
+            const lines = csvContent.split('\n');
+
+            // Iterate through the data rows
+            for (let i = 0; i < lines.length; i++) {
+                const data = lines[i].split(',');
+
+                if (data.length === 2) { // Ensure there are two columns
+                    const csvHeader = data[0].trim();
+                    const value = data[1].trim();
+
+                    // Assuming you have input elements with IDs matching the CSV headers
+                    const element = document.getElementById(csvHeader);
+
+                    if (element) {
+                        if (element.type === 'checkbox') {
+                            // For checkboxes, set the 'checked' property
+                            element.checked = value === 'on' && value !== '';
+                        } else {
+                            // For other input types, set the 'value' property
+                            element.value = value;
+                        }
+                    } else {
+                        console.error('Element not found for ID:', csvHeader);
+                    }
+                }
+            }
+        };
+
+        reader.readAsText(file);
+    } else {
+        console.error('FileReader not supported or no file selected.');
+    }
 }
