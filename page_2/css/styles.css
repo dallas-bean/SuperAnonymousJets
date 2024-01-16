@@ -188,6 +188,13 @@ header textarea {
         margin-top: 15%;
     }
 
+    header {
+        display: none;
+    }
+
+    header:first-of-type {
+        display: contents;
+    }
 
 }
 
