@@ -168,3 +168,15 @@ function autoPopulateICAO() {
     }
 
 }
+
+function sumExpand() {
+    let textBox = document.getElementById("summaryBox");
+    const minRows = 3;
+    textBox.addEventListener("input", function() {
+        const rows = Math.max(minRows, (textBox.scrollHeight / 40));
+        textBox.rows = rows;
+        textBox.style.overflow = 'hidden';
+    })
+}
+
+sumExpand();
