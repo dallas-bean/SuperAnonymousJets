@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,  user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js" integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+    <script src="./js/script.js"></script>
+    <title>SAJ 24Hr Release</title>
+</head>
+<body>
+    <header>
+        <div class="headerWrap">
+            <img src="./img/SAJ_Logo.png" alt="Sun Air Jets 24 Hour Itinerary" id="headerImage">
+            <br>
+            <textarea name="subjectLine" id="f1" cols="50" rows="2" placeholder="Client | Tail # | Route | date | Trip #"></textarea>
+        </div>
+    </header>
+    <div class="pageWrap">
+    <main>
+            <table>
+                </tbody>
+                    <tr>
+                        <th>Airport Identifier</th>
+                        <td><input type="text" id="icao1" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                        <td><input type="text" id="icao2" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                        <td><input type="text" id="icao3" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                        <td><input type="text" id="icao4" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                        <td><input type="text" id="icao5" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                    </tr>
+                    <tr>
+                        <th>ETA / ETD<br><span class="fancy miniMe">(All times in Zulu)</span></th>
+                        <td><input type="text" id="f2" placeholder="ETA / ETD"></td>
+                        <td><input type="text" id="f3" placeholder="ETA / ETD"></td>
+                        <td><input type="text" id="f4" placeholder="ETA / ETD"></td>
+                        <td><input type="text" id="f5" placeholder="ETA / ETD"></td>
+                        <td><input type="text" id="f6" placeholder="ETA / ETD"></td>
+                    </tr>
+                    <!-- hidden -->
+                    <tbody id="routeRowTwo" class="hide">
+                        <tr>
+                            <th><span class="miniMe">Continued</span></th>
+                            <td><input type="text" id="icao6" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                            <td><input type="text" id="icao7" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                            <td><input type="text" id="icao8" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                            <td><input type="text" id="icao9" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                            <td><input type="text" id="icao10" oninput="autoPopulateICAO()" placeholder="ICAO"></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td><input type="text" id="f7" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="f8" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="f9" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="f10" placeholder="ETA / ETD"></td>
+                            <td><input type="text" id="f11" placeholder="ETA / ETD"></td>
+                        </tr>
+                    </tbody>
+                    <tr>
+                        <td>
+                            <button onclick="reveal()" id="legButtonOne">Add legs</button>
+                            <button onclick="reveal()" id="legButtonTwo" class="hide">Remove legs</button>
+                        </td>
+                        <td></td>
+                    </tr>
+            </table>
+            <table>
+                <tr>
+                    <th><br><span class="fancy">PIC:</span><br><span class="fancy">SIC:</span><br><span class="fancy">Cabin Attendant:</span></th>
+                        <td><span class="bold">Crew & C.A. Assignment</span><br><span class="bold"><input type="text" id="f12" placeholder="PIC"><br><input type="text" id="f13" placeholder="SIC"><br><input type="text" id="f14" placeholder="C.A."><br><td><textarea id="f15" cols="22" rows="5" placeholder="Crewing comments"></textarea></td></td>
+                    <th><br><span class="fancy">Flight:</span><br> <span class="fancy">Duty:</span><br><span class="fancy">duty off (day prior):</span><br> <span class="fancy">duty on:</span></th>
+                        <td><span class="bold">Total Times</span><br><input type="text" id="f16" placeholder="Total Flight Time"><br><input type="text" id="f17" placeholder="Total Duty Time"><br><input type="text" id="f18" placeholder="Duty off (day prior)"><br><input type="text" id="f19" placeholder="Duty on"></td>
+                        <td></td>
+                        <td></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td style="width: 16%;"></td>
+                        <td style="width: 17%;"></td>
+                        <td style="width: 16%;"></td>
+                        <td style="width: 16%;"><span class="bold">Details</span></td>
+                        <td style="width: 16%;"></td>                    
+                        <td style="width: 16%;"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th style="width: 20%;">Minimum rest requirements met?</th>
+                        <td style="width: 15%;" class="centerText">YES<input type="checkbox" id="f20" class="yesNo">NO<input type="checkbox" id="f21" class="yesNo"></td>
+                        <td style="width: 65%;"><input type="text" id="f22" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Complies with 10/24?</th>
+                            <td class="centerText">YES<input type="checkbox" id="f23" class="yesNo">NO<input type="checkbox" id="f24" class="yesNo"></td>
+                            <td><input type="text" id="f25" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Maintenance advised / released?</th>
+                        <td class="centerText">YES<input type="checkbox" id="f26" class="yesNo">NO<input type="checkbox" id="f27" class="yesNo"></td>
+                        <td><input type="text" id="f28" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>12+ hours duty? <br><span class="miniMe">Ops approval?</span></th>
+                        <td class="centerText">YES<input type="checkbox" id="f29" class="yesNo">NO<input type="checkbox" id="f30" class="yesNo"></td>
+                        <td><input type="text" id="f31" class="fourWide"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td style="width: 16%;"><button onclick="genWeather()">Generate</button></td>
+                        <td style="width: 17%;"></td>
+                        <td style="width: 16%;"></td>
+                        <td style="width: 16%;"><span class="bold">Weather</span></td>
+                        <td style="width: 16%;"></td>                    
+                        <td style="width: 16%;"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>                    
+                    <td><input type="text" id="icao1a" placeholder="ICAO"></td>
+                    <td><input type="text" id="icao2a" placeholder="ICAO"></td>
+                    <td><input type="text" id="icao3a" placeholder="ICAO"></td>
+                    <td><input type="text" id="icao4a" placeholder="ICAO"></td>
+                    <td><input type="text" id="icao5a" placeholder="ICAO"></td>                    
+                </tr>
+                <tr>
+                    <td><textarea cols="22" rows="8" id="f32"></textarea></td>
+                    <td><textarea cols="22" rows="8" id="f33"></textarea></td>
+                    <td><textarea cols="22" rows="8" id="f34"></textarea></td>
+                    <td><textarea cols="22" rows="8" id="f35"></textarea></td>
+                    <td><textarea cols="22" rows="8" id="f36"></textarea></td>
+                </tr>
+                <tbody id="weatherRowTwo" class="hide">
+                    <tr>                    
+                        <td><input type="text" id="icao6a" placeholder="ICAO"></td>
+                        <td><input type="text" id="icao7a" placeholder="ICAO"></td>
+                        <td><input type="text" id="icao8a" placeholder="ICAO"></td>
+                        <td><input type="text" id="icao9a" placeholder="ICAO"></td>
+                        <td><input type="text" id="icao10a" placeholder="ICAO"></td>                    
+                    </tr>
+                    <tr>
+                        <td><textarea cols="22" id="f37" rows="8"></textarea></td>
+                        <td><textarea cols="22" id="f38" rows="8"></textarea></td>
+                        <td><textarea cols="22" id="f39" rows="8"></textarea></td>
+                        <td><textarea cols="22" id="f40" rows="8"></textarea></td>
+                        <td><textarea cols="22" id="f41" rows="8"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <tr>
+                    <th style="width: 20%;">Winter weather? Thunderstorms?</th>
+                        <td style="width: 15%;" class="centerText">YES<input type="checkbox" id="f42" class="yesNo">NO<input type="checkbox" id="f43" class="yesNo"></td>
+                        <td style="width: 65%;"><input type="text" id="f44" class="fourWide"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td style="width: 16%;"></td>
+                        <td style="width: 17%;"></td>
+                        <td style="width: 16%;"></td>
+                        <td style="width: 16%;"><span class="bold">Airfield Suitability</span></td>
+                        <td style="width: 16%;"></td>                    
+                        <td style="width: 16%;"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th><a href="https://www.notams.faa.gov/dinsQueryWeb/" target="_blank">NOTAM's</a></th>
+                    <td class="centerText">YES<input type="checkbox" id="f45" class="yesNo">NO<input type="checkbox" id="f46" class="yesNo"></td>
+                    <td><textarea class="fourWide" id="f47" rows="6"></textarea></td>
+                </tr>
+                <tr>
+                    <th><a href="https://tfr.faa.gov/tfr2/list.html" target="_blank">TFR's</a></th>
+                    <td class="centerText">YES<input type="checkbox" id="f48" class="yesNo">NO<input type="checkbox" id="f49" class="yesNo"></td>
+                    <td><textarea class="fourWide" id="f50" rows="6"></textarea></td>
+                </tr>
+                <tr>
+                    <th style="width: 20%;">FBO's coordinated, hours of operation checked?</th>
+                        <td style="width: 15%;" class="centerText">YES<input type="checkbox" id="f51" class="yesNo">NO<input type="checkbox" id="f52" class="yesNo"></td>
+                        <td style="width: 65%;"><input type="text" id="f53" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Fuel coordinated?</th>
+                        <td class="centerText">YES<input type="checkbox" id="f54" class="yesNo">NO<input type="checkbox" id="f55" class="yesNo"></td>
+                        <td style="width: 65%;"><input type="text" id="f56" class="fourWide"></td>
+                </tr> 
+                <tr>
+                    <th>Parking obtained?</th>
+                        <td class="centerText">YES<input type="checkbox" id="f137" class="yesNo">NO<input type="checkbox" id="f138" class="yesNo"></td>
+                        <td><input type="text" id="f139" class="fourWide"></td>
+                </tr> 
+                <tr>
+                    <th>PPR(s) obtained? PPR#'s?</th>
+                        <td class="centerText">YES<input type="checkbox" id="f111" class="yesNo">NO<input type="checkbox" id="f112" class="yesNo"></td>
+                        <td><input type="text" id="f113" class="fourWide"></td>
+                </tr>
+                <!-- Had to repurpose the id's above (f111 / 112 / 113) from a vestigial question below. Just didn't feel up to redoing all of the ID's for a 5th time -->
+                <tr>
+                    <th>Hangar / de-ice arranged?<span class="miniMe"> (if applicable)</span></th>
+                        <td class="centerText">YES<input type="checkbox" id="f57" class="yesNo">NO<input type="checkbox" id="f58" class="yesNo"></td>
+                        <td style="width: 65%;"><input type="text" id="f59" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Daytime only?</th>
+                        <td class="centerText">YES<input type="checkbox" id="f60" class="yesNo">NO<input type="checkbox" id="f61" class="yesNo"></td>
+                        <td><input type="text" id="f62" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Mountainous?</th>
+                        <td class="centerText">YES<input type="checkbox" id="f63" class="yesNo">NO<input type="checkbox" id="f64" class="yesNo"></td>
+                        <td><input type="text" id="f65" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th><a href="https://www.boeing.com/commercial/noise/list.page" target="_blank">Noise limits &/or curfew compliance?</a></th>
+                        <td class="centerText">YES<input type="checkbox" id="f66" class="yesNo">NO<input type="checkbox" id="f67" class="yesNo"></td>
+                        <td><input type="text" id="f68" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Performance Restrictions?<br><span class="fancy miniMe">(hot WX / short field / high elev. / etc)</span></th>
+                    <td class="centerText">YES<input type="checkbox" id="f69" class="yesNo">NO<input type="checkbox" id="f70" class="yesNo"></td>
+                    <td><textarea class="fourWide" id="f71" rows="6"></textarea></td>
+                </tr>
+                <tr>
+                    <th>Overwater / coastal operations?</th>
+                    <td class="centerText">YES<input type="checkbox" id="f72" class="yesNo" onclick="popup3()">NO<input type="checkbox" id="f73" class="yesNo"></td>
+                    <td><p id="warning3" style="display: none;">NOTIFY CREW - RAFTS! <button class="closebutton" id="closebutton1" onclick="closeout3()">&times;</button></p><input type="text" id="f74" class="fourWide"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td style="width: 16%;"></td>
+                        <td style="width: 17%;"></td>
+                        <td style="width: 16%;"></td>
+                        <td style="width: 16%;"><span id="intTitle" class="bold dontPrint">International</span> <button id="r4b1" onclick="revealFour()">+</button><button class="hide" id="r4b2" onclick="revealFour()">-</button></td>
+                        <td style="width: 16%;"></td>                    
+                        <td style="width: 16%;"></td>
+                </tr>
+            </table>
+            <table id="intnlTable" class="hide">
+                <tr>
+                    <th style="width: 20%;">Handler &/or local handling agent arranged / confirmed?</th>
+                        <td style="width: 15%;" class="centerText">YES<input type="checkbox" id="f75" class="yesNo">NO<input type="checkbox" id="f76" class="yesNo"></td>
+                        <td style="width: 65%;"><input type="text" id="f77" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Pax manifest complete? <br> <span class="miniMe">(name, PP#, exp, DOB, Citizenship)</span></th>
+                    <td class="centerText">YES<input type="checkbox" id="f78" class="yesNo">NO<input type="checkbox" id="f79" class="yesNo"></td>
+                    <td><input type="text" id="f80" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Passengers meet entry requirements? <span class="miniMe">(visa / residency / passport / immunization / minor traveling with one parent / required misc. travel doc's)</span></th>
+                    <td class="centerText">YES<input type="checkbox" id="f81" class="yesNo">NO<input type="checkbox" id="f82" class="yesNo"></td>
+                    <td><input type="text" id="f83" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>eAPIS filed?</th>
+                    <td class="centerText">YES<input type="checkbox" id="f84" class="yesNo">NO<input type="checkbox" id="f85" class="yesNo"></td>
+                    <td><input type="text" id="f86" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Landing Rights granted? <br><span class="miniMe">Current?</span></th>
+                    <td class="centerText">YES<input type="checkbox" id="f87" class="yesNo">NO<input type="checkbox" id="f88" class="yesNo"></td>
+                    <td><input type="text" id="f89" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Overflight permit(s) obtained?</th>
+                    <td class="centerText">YES<input type="checkbox" id="f90" class="yesNo">NO<input type="checkbox" id="f91" class="yesNo"></td>
+                    <td><input type="text" id="f92" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Landing permit(s) obtained?</th>
+                    <td class="centerText">YES<input type="checkbox" id="f93" class="yesNo">NO<input type="checkbox" id="f94" class="yesNo"></td>
+                    <td><input type="text" id="f95" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>PPR(s) obtained?</th>
+                    <td class="centerText">YES<input type="checkbox" id="f96" class="yesNo">NO<input type="checkbox" id="f97" class="yesNo"></td>
+                    <td><input type="text" id="f98" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Slot(s) obtained?</th>
+                    <td class="centerText">YES<input type="checkbox" id="f99" class="yesNo">NO<input type="checkbox" id="f100" class="yesNo"></td>
+                    <td><input type="text" id="f101" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Other Permit(s)?</th>
+                    <td class="centerText">YES<input type="checkbox" id="f102" class="yesNo">NO<input type="checkbox" id="f103" class="yesNo"></td>
+                    <td><input type="text" id="f104" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Customs hours comply with arrival / departure date & time?</th>
+                    <td class="centerText">YES<input type="checkbox" id="f105" class="yesNo">NO<input type="checkbox" id="f106" class="yesNo"></td>
+                    <td><input type="text" id="f107" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Customs arranged / current?</th>
+                    <td class="centerText">YES<input type="checkbox" id="f108" class="yesNo">NO<input type="checkbox" id="f109" class="yesNo"></td>
+                    <td><input type="text" id="f110" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Parking confirmed?</th>
+                    <td class="centerText">YES<input type="checkbox" id="f114" class="yesNo">NO<input type="checkbox" id="f115" class="yesNo"></td>
+                    <td><input type="text" id="f116" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Crew transportation / hotel arranged?</th>
+                    <td class="centerText">YES<input type="checkbox" id="f117" class="yesNo">NO<input type="checkbox" id="f118" class="yesNo"></td>
+                    <td><input type="text" id="f119" class="fourWide"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td style="width: 16%;"></td>
+                        <td style="width: 17%;"></td>
+                        <td style="width: 16%;"></td>
+                        <td style="width: 16%;"><span class="bold">Customer service(s)</span></td>
+                        <td style="width: 16%;"></td>                    
+                        <td style="width: 16%;"></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <th style="width: 20%;">Catering arranged?</th>
+                        <td style="width: 15%;" class="centerText">YES<input type="checkbox" id="f120" class="yesNo">NO<input type="checkbox" id="f121" class="yesNo"></td>
+                        <td style="width: 65%;"><input type="text" id="f122" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Transportation arranged?</th>
+                        <td class="centerText">YES<input type="checkbox" id="f123" class="yesNo">NO<input type="checkbox" id="f124" class="yesNo"></td>
+                        <td><input type="text" id="f125" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>TSA Checked?</th>
+                        <td class="centerText">YES<input type="checkbox" id="f126" class="yesNo">NO<input type="checkbox" id="f127" class="yesNo"></td>
+                        <td><input type="text" id="f128" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Pets?</th>
+                        <td class="centerText">YES<input type="checkbox" id="f129" class="yesNo">NO<input type="checkbox" id="f130" class="yesNo"></td>
+                        <td><input type="text" id="f131" class="fourWide"></td>
+                </tr>
+                <tr>
+                    <th>Guns?</th>
+                        <td class="centerText">YES<input type="checkbox" id="f132" class="yesNo">NO<input type="checkbox" id="f133" class="yesNo"></td>
+                        <td><input type="text" id="f134" class="fourWide"></td>
+                </tr>
+            </table><br>
+            <table>
+                <tr>
+                    <th style="width: 20%;">Notes</th>
+                        <td style="width: 15%;"></td>
+                        <td><div class="fourWide" contenteditable="true" id="f135"></div></td>
+                </tr>
+                <tr>
+                    <th style="width: 20%;">Completed on:</th>
+                    <td><input type="datetime-local" id="f136"></td>
+                </tr>
+                <tr>
+                    <th>
+                        <td></td>
+                        <td>
+                            <span class="button-box">
+                                <button onclick="window.print();return false" class="p-button">Print to PDF</button> 
+                                <button onclick="superman()">Save</button> 
+                                <button><input type="file" id="fileInput" accept=".csv" onchange="handleFileUpload(event)"></button>
+                            </span>
+                        </td>
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
