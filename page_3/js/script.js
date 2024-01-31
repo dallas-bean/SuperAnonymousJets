@@ -77,7 +77,8 @@ for (let i = 1; i <= 10; i++) {
     const locElementA = document.getElementById(`icao${i}a`)
 
     locElementA.value = locElement.value;
-}}
+    }
+}
 
 function genWeather() {
 
@@ -129,6 +130,9 @@ function superman() {
                 saveData[`icao${i}`] = element.value;
             }
         }
+
+        const elementA = document.getElementById(`icao${i}a`);
+        saveData[`icao${i}a`] = elementA.value;
     }
 
     const csvContent = Object.keys(saveData).map(key => `${key},${saveData[key]}`).join('\n');
@@ -208,7 +212,7 @@ function handleFileUpload(event) {
     const csvFile = fileInput.files[0];
 
     if (csvFile && (csvFile.type === 'text/csv' || csvFile.type === 'application/vnd.ms-excel')) {
-        loadDataFromCSV(fileInput);  // Call your function to load CSV data
+        loadDataFromCSV(fileInput);  // Call function to load CSV data
     } else {
         alert('Please upload a valid CSV file.');
     }
