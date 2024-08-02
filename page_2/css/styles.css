@@ -230,17 +230,3 @@ header textarea {
         margin-top: 6vh !important;
     }
 }
-
-#aysatDiv {
-    position: fixed;
-    left: 50%;
-    bottom: -100%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: bottom 0.5s ease-in-out;
-}
-
-.slideUp {
-    opacity: 1 !important;
-    bottom: 0 !important;
-}

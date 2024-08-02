@@ -163,30 +163,3 @@ function sumExpand() {
 }
 
 sumExpand();
-
-// function aysat() {
-//     let subject = document.getElementById("aysatDiv");
-
-//     subject.style.display = "block";
-//     subject.classList.add("slideUp");
-// }
-
-// function aysatDismiss() {
-//     let subject = document.getElementById("aysatDiv");
-
-//     subject.style.display = "none";
-//     subject.classList.remove("slideUp");
-// }
-
-function aysat(checkboxId) {
-    let subject = document.getElementById("aysatDiv");
-    let trigger = document.getElementById(checkboxId);
-
-    if (trigger.checked) {
-        subject.classList.toggle("slideUp");
-    }
-}
-
-function aysatDismiss() {
-    document.getElementById("aysatDiv").classList.toggle("slideUp");
-}
