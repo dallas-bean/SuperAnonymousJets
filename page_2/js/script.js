@@ -163,3 +163,9 @@ function sumExpand() {
 }
 
 sumExpand();
+
+function test() {
+    let x = document.getElementById("test");
+
+    x = 0;
+}

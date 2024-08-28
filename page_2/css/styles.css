@@ -225,6 +225,10 @@ header textarea {
 
 }
 
+.asdf {
+    font-size: inherit;
+}
+
 @media screen and (max-height:700px) {
     body {
         margin-top: 6vh !important;
