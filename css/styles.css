@@ -27,13 +27,19 @@
 
 
   body {
-    background-image: url(../img/bg_img.png);
+    background-image: url(../img/new_bg_horiz.png);
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
     color: white;
     max-height: 99vh;
     overflow-y: hidden;
+  }
+
+  @media (max-aspect-ratio: 1/1) {
+    body {
+      background-image: url('../img/new_bg_vert.png');
+    }
   }
 
   footer {
