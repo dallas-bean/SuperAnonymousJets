@@ -3,148 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/script.js"></script>
-    <title>Flight Control Hub</title>
+    <title>SAJFC Hub</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul id="mainNav" class="cSpan">
-                <li><span onclick="unhide('button1', 'news')">News</span></li>
-                <li><span onclick="unhide('button2', 'documents')">Documents</span></li>
-                <li class="exclude"><img src="./img/logo.png" alt="Super Anonymous Jets Flight Control" id="logo"></li>
-                <li><span onclick="unhide('button3', 'portals'), fade()">Portals</span></li>
-                <li><span onclick="unhide('button4', 'resources'), fade1()">Resources</span></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div id="news" class="collapse slide2 navToggle newsWrap">
-            <div class="news">
-                <span>
-                    <article class="padme standardArticle">
-                        <h3>NEW COFFEE MACHINE COMING TO AN OFFICE NEAR YOU!</h3>
-                        <p>Big thank you to Armando for finally biting the bullet and getting the office a coffee machine! If you haven't already, inquire with Mando to donate your portion of the coffee maker fund.</p>
-                        <p><span class="date">19Jan24</span></p>
-                    </article><hr>
-                    <article class="padme standardArticle">
-                        <h3>Updated Jetworx Staging Contacts!</h3>
-                        <p>Jetworx in VNY has updated their staging contacts! Reference the pinned message in FCPD for more details!</p>
-                        <p><span class="date">08Jan24</span></p>
-                    </article><hr>
-                    <article class="padme standardArticle">
-                        <h3>Forward the Phones!</h3>
-                        <p>Remember to forward the phones to 329 at night (and to unforward them in the morning!)</p>
-                        <p><span class="date">03Jan24</span></p>
-                    </article><hr>
-                    <article class="padme standardArticle">
-                        <h3>Updates to DCL items and procedure!</h3>
-                        <p>Check FCPD chat for details!</p>
-                        <p><span class="date">28Dec23</span></p>
-                    </article><hr>
-                    <article class="padme standardArticle">
-                        <h3>Congrats Mae!</h3>
-                        <p>Congratulations to Mae for winning best decorated desk!<br><img src="./img/confetti.png" alt="confetti"><br><span class="date"></span></p>
-                        <p><span class="date">28Dec23</span></p>
-                    </article><hr>
-                    <article class="padme standardArticle">
-                        <h3 class="red">FUEL ADVISOR IMPLEMENTATION!</h3>
-                        <p>Use of the Fuel Advisor feature in foreflight has officially been implemented. Refer to FCPD for more details<br><span class="date">04Dec23</span></p>
-                    </article>
-                </span>
-            </div>
-        </div>
-        <div id="documents" class="collapse slide navToggle">
-            <ul class="cSpan">
-                <li><a href="./page_2/fere.html" target="_blank">Feasibility Report</a></li>
-                <li><a href="./page_3/releaseDoc.html" target="_blank">24 Hour Release Doc</a></li>
-                <li><a href="https://sunairjets.sharepoint.com/:x:/r/sites/Dispatch/_layouts/15/Doc.aspx?sourcedoc=%7B938ce8bf-c86d-4124-ae9c-e1b9f3b4fdc5%7D&action=view" target="_blank">Daily Checklist</a></li>
-                <li><a href="./page_5/calendar.html" target="_blank" class="link">Calendar</a></li>
-                <li><a href="https://sunairjets.sharepoint.com/sites/FlightControl" target="_blank">Pubs Library</a></li>
-            </ul>
-        </div>
-        <div id="portals" class="collapse navToggle">
-            <table>
-                <tr>
-                    <td><a href="https://front.com/" target="_blank" class="link">
-                        <img src="./img/Front-Icon.png" alt="Front" name="frontImg" class="icon">
-                        </a></td>
-                    <td><a href="https://www.jetinsight.com/" target="_blank" class="link">
-                        <img src="./img/JetInsight-Icon.png" alt="Jet Insight" name="jetInsightImg" class="icon">
-                        </a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.satcomdirect.com/" target="_blank" class="link">
-                        <img src="./img/Satcom-Icon.png" alt="Satcom" name="satcomImg" class="icon">
-                        </a></td>
-                    <td><a href="https://plan.foreflight.com/" target="_blank" class="link">
-                        <img src="./img/Foreflight-Icon.png" alt="foreflight" name="foreflightImg" class="icon">
-                        </a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://uvgo.universalweather.com/auth/login" target="_blank" class="link">
-                        <img src="./img/Universal-Icon.png" alt="universal" name="universalImg" class="icon">
-                        </a></td>
-                    <td><a href="https://www.flightbridge.com/" target="_blank" class="link">
-                        <img src="./img/flightbridge.png" alt="flightbridge" name="flightbridgeicon" class="icon">
-                        </a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://app.wyvern.systems/auth/login" target="_blank" class="link">
-                        <img src="./img/wyvern-icon.png" alt="Wyvern" name="wyvern-icon" class="icon">
-                        </a></td>
-                    <td><a href="https://sunairjets.voippbxsite.net/App" target="_blank" class="link">
-                        <img src="./img/voip-icon.png" alt="Voip" name="voip-icon" class="icon">
-                        </a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://secure2.saashr.com/ta/SunAir.clock?login=0&msg=" target="_blank" class="link">
-                        <img src="./img/Timecard-Icon.png" alt="Timesheets" name="timesheetsImg" class="icon">
-                        </a></td>
-                    <td><a href="" target="_blank" class="link">
-                        <img src="./img/Safety-Reports-icon.png" alt="Safety Reports" name="safetyReportImg" class="icon">
-                        </a></td>
-                </tr>
-            </table>
-        </div>
-        <div id="resources" class="collapse navToggle">
-            <table class="centerMe">
-                <tr>
-                    <td><a href="https://www.notams.faa.gov/dinsQueryWeb/" target="_blank">NOTAMS</a></td>
-                    <td><a href="https://tfr.faa.gov/tfr2/list.html" target="_blank">TFR's</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.avfuel.com/" target="_blank">Avfuel</a></td>
-                    <td><a href="https://everest-fuel.com/" target="_blank">Everest</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.aviationweather.gov/" target="_blank">Weather (TAF's)</a></td>
-                    <td><a href="https://www.weather.gov/" target="_blank">Weather (LR-domestic)</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.fltplan.com/#" target="_blank">Fltplan.com</a></td>
-                    <td><a href="https://www.boeing.com/content/dam/boeing/boeingdotcom/commercial/noise/airport_noise_table.pdf" target="_blank">Noise Restrictions</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/advanced/" target="_blank">AFD's</a></td>
-                    <td><a href="https://nasstatus.faa.gov/" target="_blank">Ground stops</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://lp.signatureflight.com/travel-alerts" target="_blank">Signature FBO alerts</a></td>
-                    <td><a href="https://www.nhc.noaa.gov/cyclones/" target="_blank">Hurricanes</a></td>
-                </tr>
-                <tr>
-                    <td><a href="https://www.worldtimebuddy.com/" target="_blank">Time conversion table</a></td>
-                    <td><a href="https://www.time.gov/?t=24" target="_blank">Time zones</a></td>
-                </tr>
-            </table>
-        </div>
-        <div class="phone-bank collapse" id="phones" onmouseenter="phones()" onmouseleave="phones()">
-            <span>
-                <h3 class="underLine">Phone Extensions</h3>
-                <ul>
-                    <li class="underLine bold exclude">Departmental</li>
+    <header class="site-header">
+    <div class="logo" id="logoDiv">
+        <h1><span id="logoText">Super Anonymous Jets</span></h1>
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li onclick="reveal('docMenu')">Documents</li>
+                <ul id="docMenu" class="submenu hidden">
+                    <li><a href="./page_2/fere.html" target="_blank">Fe.Re.</a></li>
+                    <li><a href="./page_3/releaseDoc.html" target="_blank">24Hr Release Doc</a></li>
+                    <li><a href="https://sunairjets.sharepoint.com/:x:/s/Dispatch/Eb_ojJNtyCRBrpzhufO0_cUBGYkhXBv-GEICzrLtBi7_HQ?e=SBdPtC" target="_blank">Daily Checklist</a></li>
+                    <li><a href="./page_5/calendar.html" target="_blank">Calendar</a></li>
+                    <li><a href="https://sunairjets.sharepoint.com/:u:/r/sites/FlightControl/SitePages/Home.aspx?csf=1&web=1&share=EQH16tbC5vVFnvgSdICKlzcBLf-Egspmt1B-KLQTX1Gy9g&e=Fkb6Nx" target="_blank">Pubs Library</a></li>
+                </ul>
+            </li>
+            <li onclick="reveal('portalMenu')">Portals</li>
+            <li onclick="reveal('resourceMenu')">Resources</li>
+            <li><img src="./img/phone-icon.png" alt="Phone Directory" id="phoneIcon" onclick="reveal('phoneBank')"></li>
+                <ul id="phoneBank" class="submenu hidden">
+                    <li class="phoneCat">Departmental</li>
                     <li>Front Desk - 300</li>
                     <li>Operations - 303</li>
                     <li>Inflight - 307</li>
@@ -152,20 +36,19 @@
                     <li>Flight Control - 321</li>
                     <li>Maintenance - 333</li>
                     <li>Charter - 335</li>
-                    <li class="underLine bold exclude">Flight Control</li>
-                    <li>Dallas & Amanda - 329</li>
-                    <li>Armando - 327</li>
-                    <li class="underLine bold exclude">A.C. Management</li>
+                    <li class="phoneCat">Flight Control</li>
+                    <li>Amanda & Armando - 329</li>
+                    <li>Nick - 327</li>
+                    <li class="phoneCat">A.C. Management</li>
                     <li>Justin - 306</li>
                     <li>Makayla - 360</li>
                     <li>Karen - 373</li>
-                    <li class="underLine bold exclude">Human Resources</li>
+                    <li class="phoneCat">Human Resources</li>
                     <li>Kim - 372</li>
                     <li>Nidia - 346</li>
-                    <li class="underLine bold exclude">Accounting</li>
-                    <li>Chloe - 305</li>
+                    <li class="phoneCat">Accounting</li>
                     <li>Katie - 308</li>
-                    <li class="underLine bold exclude">Miscellaneous</li>
+                    <li class="phoneCat">Miscellaneous</li>
                     <li>Brian - 302</li>
                     <li>Ed. F - 398</li>
                     <li>Rob C. (MX) - 308</li>
@@ -174,14 +57,70 @@
                     <li>Crystal - 383</li>
                     <li>Naima (VNY) - 330</li>
                 </ul>
-            </span>
-        </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+    <main>
+        <table id="portalMenu" class="submenu centerFlex hidden">
+            <tbody id="portalMenuBody">
+                <tr>
+                    <td class="padMe"><a href="https://front.com/" target="_blank"><img src="./img/Front-Icon.png" alt="Front"></a></td>
+                    <td class="padMe"><a href="https://www.jetinsight.com/" target="_blank"><img src="./img/JetInsight-Icon.png" alt="Jet Insight"></a></td>
+                </tr>
+                <tr>
+                    <td class="padMe"><a href="https://www.satcomdirect.com/" target="_blank"><img src="./img/Satcom-Icon.png" alt="Satcom"></a></td>
+                    <td class="padMe"><a href="https://plan.foreflight.com/" target="_blank"><img src="./img/Foreflight-Icon.png" alt="Foreflight"></a></td>
+                </tr>
+                <tr>
+                    <td class="padMe"><a href="https://uvgo.universalweather.com/auth/login" target="_blank"><img src="./img/Universal-Icon.png" alt="Universal"></a></td>
+                    <td class="padMe"><a href="https://www.flightbridge.com/" target="_blank"><img src="./img/flightbridge.png" alt="Flight Bridge"></a></td>
+                </tr>
+                <tr>
+                    <td class="padMe"><a href="https://app.wyvern.systems/auth/login" target="_blank"><img src="./img/wyvern-icon.png" alt="Wyvern"></a></td>
+                    <td class="padMe"><a href="https://sunairjets.voippbxsite.net/App" target="_blank"><img src="./img/voip-icon.png" alt="Voip"></a></td>
+                </tr>
+                <tr>
+                    <td class="padMe"><a href="https://secure2.saashr.com/ta/SunAir.clock?login=0&msg=" target="_blank"><img src="./img/Timecard-Icon.png" alt="Time Card"></a></td>
+                    <td class="padMe"><a href="https://vocus.aero/" target="_blank"><img src="./img/Safety-Reports-icon.png" alt="Safety Reports"></a></td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="resourceMenu" class="submenu centerFlex hidden">
+            <tbody id="resourceMenuBody">
+                <tr>
+                    <td class="padMe"><a href="https://www.notams.faa.gov/dinsQueryWeb/" target="_blank">NOTAM's</a></td>
+                    <td class="padMe"><a href="https://tfr.faa.gov/tfr2/list.html" target="_blank">TFR's</a></td>
+                </tr>
+                <tr>
+                    <td class="padMe"><a href="https://www.avfuel.com/" target="_blank">Avfuel</a></td>
+                    <td class="padMe"><a href="https://everest-fuel.com/" target="_blank">Everest</a></td>
+                </tr>
+                <tr>
+                    <td class="padMe"><a href="https://www.aviationweather.gov/" target="_blank">Weather (TAF's)</a></td>
+                    <td class="padMe"><a href="https://www.weather.gov/" target="_blank">Weather (LR-Domestic)</a></td>
+                </tr>
+                <tr>
+                    <td class="padMe"><a href="https://www.fltplan.com/#" target="_blank">Fltplan.com</a></td>
+                    <td class="padMe"><a href="https://www.boeing.com/content/dam/boeing/boeingdotcom/commercial/noise/airport_noise_table.pdf" target="_blank">Noise Restrictions</a></td>
+                </tr>
+                <tr>
+                    <td class="padMe"><a href="https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/search/advanced/" target="_blank">AFD's</a></td>
+                    <td class="padMe"><a href="https://nasstatus.faa.gov/" target="_blank">Ground Stops</a></td>
+                </tr>
+                <tr>
+                    <td class="padMe"><a href="https://lp.signatureflight.com/travel-alerts" target="_blank">Signature FBO Alerts</a></td>
+                    <td class="padMe"><a href="https://www.nhc.noaa.gov/cyclones/" target="_blank">Hurricanes</a></td>
+                </tr>
+                <tr>
+                    <td class="padMe"><a href="https://www.worldtimebuddy.com/" target="_blank">Time Conversion Table</a></td>
+                    <td class="padMe"><a href="https://www.time.gov/?t=24" target="_blank">Time Zones</a></td>
+                </tr>
+            </tbody>
+        </table>
     </main>
     <footer>
-        <ul class="cSpanWide">
-            <li><img src="./img/phone-icon.png" alt="Phone list" onmouseenter="phones()" onmouseleave="phones()"></li>
-            <li><a href="./page_4/erp.html" target="_blank"><img src="./img/Emergency response.gif" alt="Emergency Response"></a></li>
-        </ul>
+        <a href="./page_4/erp.html" target="_blank"><img src="./img/Emergency response.gif" alt="ERP" class="padMe"></a>
     </footer>
 </body>
 </html>
