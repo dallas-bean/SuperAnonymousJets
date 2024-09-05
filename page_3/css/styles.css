@@ -1,212 +1,292 @@
-/* font fix start */
-html {
-    font-size: 16px;
-    background-image: url(../img/bgeight.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.headerWrap,
-main {
-    background-color: rgba(240, 248, 255, 0.856);
-    width: 60vw;
-    border-radius: 10px;
-}
-body {
-    font-size: 1rem;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-    font-size: inherit;
-}
-
-/* font fix end */
-/* macro start */
-* {
+*, *::before, *::after {
     box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    padding: unset;
-    margin: unset;
 }
-
+* {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 body {
-    position: relative;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+input, button, textarea, select {
+    font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+#root, #__next {
+    isolation: isolate;
+}
+/*
+    The above standardized CSS reset was provided by Josh Comeau
+    @ https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ELEMENTS */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+body {
+    background-image: url("../img/bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 header {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    position: fixed;
-    width: 100%;
-    height: 14vh;
-    top: 0;
-    left: 0;
-    z-index: 99;
+    gap: 1rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: rgba(240, 248, 255, 0.856);
+    width: 75vw;
 }
 
-    header * {
-        border-radius: 10px;
-    }
-
-        .headerWrap {
-            width: 63%;
-            position: relative;
-            margin: 0 auto;
-            text-align: center;
-            padding-top: 1rem;
-        }
-
-main {
-    margin-top: 14%;
+main,
+#wrap {
+    border-radius: 18px;
+    position: relative;
 }
 
-.pageWrap {
-    width: 75%;
-    margin: 0 auto;
-    margin-bottom: 5vh;
+input[type="text"] {
+    border-radius: 25px;
+    border: 1px solid grey;
+    padding: 0 .5rem;
+    text-align: center;
+}
+
+[contenteditable="true"] {
+    font-size: .8vw;
+    line-height: inherit;
+}
+
+[contenteditable="true"] div {
+    text-align: left !important;
+}
+
+button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+* {
+    font-size: .8vw;
+}
+
+h3 {
+    padding: 1vh 0;
+    font-size: 1vw !important;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* CLASSES */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.centerFlex {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-table {
-    width: 50vw;
-    row-gap: 1rem;
-    margin: 0 auto;
-}
-    table input,
-    textarea {
-        text-align: center;
-        border-radius: 10px;
-        border: 1px solid rgb(184, 184, 184);
-    }
-
-textarea {
-    resize: none;
-    padding-left: 0.1rem;
+.roundMe {
+    border-radius: 120px;
 }
 
-p {
+.roundMeLess {
+    border-radius: 25px;
+}
+
+.inputFormat {
+    text-align: center;
+}
+
+.popup {
+    visibility: hidden;
+    text-align: center;
     position: absolute;
     z-index: 1;
-    border-radius: 10px;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+    background-color: white;
+    color: red;
+    border-radius: 25px;
+    padding: 1vh 1vw;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+.popup2 {
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    color: red;
     border: 1px solid black;
-    padding: 1em;
-    background-color: whitesmoke;
+    border-radius: 25px;
+    padding: 1vh 1vw;
+    white-space: nowrap;
 }
 
-th {
-    text-align: right;
-    border-bottom: 1px solid rgb(184, 184, 184);
+.hoverPrompt {
+    color: rgb(11, 11, 163);
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
 }
 
-.hide {
+.hoverPrompt:hover .popup {
+    visibility: visible;
+    opacity: 1;
+}
+
+.linePrompt {
+    text-align: right !important;
+    font-weight: bold;
+    font-size: .75vw;
+    border-bottom: 1px solid grey;
+}
+
+.ddEven {
+    background-color: rgba(226, 226, 226, 0.842) !important;
+}
+
+.hidden {
     display: none;
     visibility: hidden;
-}
-
-.yesNo {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-}
-
-.fourWide {
-    width: 100%;
-    text-align: left;
-    padding-left: 0.25em;
-}
-
-/* macro end */
-
-/* Particulars */
-
-header textarea {
-    text-align: center;
-    font-weight: 600;
-    font-size: 1.25rem;
-}
-
-#headerImage {
-    border-radius: 270px;
-}
-
-.fancy {
-    font-style: italic;
 }
 
 .bold {
     font-weight: bold;
 }
 
-.bluey {
-    color: blue;
+.qAndABox {
+    width: 100% !important;
+    text-align: left !important;
 }
 
-.bluey:hover {
-    cursor: pointer;
-}
-
-.centerText {
+.exit {
     text-align: center;
-}
-
-.miniMe {
-    font-size: smaller;
-    font-style: italic;
-}
-
-#r4b1,
-#r4b2 {
-    width: 1rem;
-    text-align: center;
-}
-
-#f135 {
+    position: absolute;
+    z-index: 1;
+    bottom: 93.5%;
+    left: 105%;
+    margin-left: -80px;
     background-color: white;
-    border-radius: 10px;
-    border: 1px solid rgb(184, 184, 184);
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 0 .5vw;
+    white-space: nowrap;
 }
 
+.exit2 {
+    text-align: center;
+    position: absolute;
+    bottom: 50%;
+    z-index: 1;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 0 .5vw;
+    white-space: nowrap;
+}
+
+.textAreaAlt {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border: 1px solid grey;
+    padding: 0 0.5vw;
+    border-radius: 6px;
+}
+
+.dateBox {
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ID'S */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+#wrap {
+    margin-top: 1vh;
+    width: 70vw;
+    background-color: rgba(240, 248, 255, 0.856);
+    overflow: hidden;
+    position: relative;
+}
+
+#summaryBox {
+    width: 75% !important;
+}
+
+#routing {
+    table-layout: fixed;
+    min-width: 70%;
+}
+
+#details {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+.textAreaAlt div {
+    text-align: center;
+    width: 100%;
+}
+
+#detailsTwo,
+#weatherQ,
+#suitability,
+#coordination,
+#notes {
+    width: 90%;
+}
+
+#crewComments {
+    width: 100%;
+    height: 100%;
+    padding: .5vw;
+}
+
+#crewStandards {
+    position: absolute;
+    background-color: white;
+    padding: 1.5vh 1.5vw;
+    border-radius: 6px;
+    flex-direction: row !important;
+    gap: 0 1vw;
+}
+
+#warningPrompt {
+    height: fit-content;
+    width: auto;
+    background-color: white;
+    color: red;
+    border-radius: 25px;
+    padding: 2vh 2vw;
+}
+
+#timesWarningExit {
+    position: relative;
+    bottom: 5vh !important;
+    left: 9vw !important;
+}
+
+#printButton {
+    font-weight: 100 !important;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* MEDIA QUERIES */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 @media print {
-    * {
-        font-size: 0.5rem;
-    }
-
-    table {
-        width: 60vw;
-    }
-
-    input[type="checkbox"] {
-        transform: scale(0.65);
-    }
-
-    .yesNo {
-        margin: 0;
-    }
-
-    button {
-        display: none;
+    .noPrint {
+        display: none;    
         visibility: hidden;
-    }
-
-    body {
-        margin-top: 15%;
-    }
-
-    header,
-    .dontPrint {
-        display: none;
-    }
-
-    header:first-of-type {
-        display: contents;
-    }
-
-}
-
-@media screen and (max-height:700px) {
-    body {
-        margin-top: 6vh !important;
     }
 }
