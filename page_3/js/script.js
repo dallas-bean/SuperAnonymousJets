@@ -1,4 +1,4 @@
-window.jsPDF = window.jspdf.jsPDF;
+// window.jsPDF = window.jspdf.jsPDF;
 
 // function superman() {
 //     // Ask the user for a file name
@@ -177,7 +177,7 @@ function revealClass(classID) {
 function weatherPop() {
     let lastFilledIndex = 1; // Start tracking from the first ICAO box
 
-    for (let i = 1; i <= 10; i += 2) {
+    for (let i = 1; i <= 20; i += 2) {
         const routeString = document.getElementById(`TESTING${(i + 1) / 2}`).textContent;
         const depAP = routeString.slice(0, 4);
         const arrAP = routeString.slice(-4);
@@ -226,8 +226,9 @@ function populate(var1, var2, var3, var4, var5) {
     let etdE = document.getElementById(var3);
     let etaE = document.getElementById(var4);
     let ddE = document.getElementById(var5);
-    let rowReveal = document.getElementById("TESTING6");
+    let rowReveal = document.getElementById("TESTING5");
     let extraRow = document.getElementById("expandedRoute");
+    let extraWeather = document.getElementById("weatherTwo");
     
     let ap1 = ap1E.value;
     let ap2 = ap2E.value;
@@ -251,6 +252,7 @@ function populate(var1, var2, var3, var4, var5) {
 
     if (rowReveal.textContent !== "") {
         extraRow.classList.remove("hidden");
+        extraWeather.classList.remove("hidden");
     }
     
     ap1E.value = ap2;
