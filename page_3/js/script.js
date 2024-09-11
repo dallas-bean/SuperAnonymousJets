@@ -387,7 +387,7 @@ function timeCalc() {
                                     flightTimeInMinutes += 24 * 60;
                                 }
                         
-                            let flightTimeInHours = flightTimeInMinutes / 60;
+                            let flightTimeInHours = Math.round((flightTimeInMinutes / 60) * 10) / 10;
                             currentDutyDayFlightTime += flightTimeInHours;
                         
                             // Update lastArrivalTimeInMinutes for the next iteration
