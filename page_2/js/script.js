@@ -58,7 +58,6 @@ function weatherPop() {
         }
 
         lastFilledIndex += 1;
-        console.log(lastFilledIndex);
         // Move to the next pair of boxes
     }
 }
