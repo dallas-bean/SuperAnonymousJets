@@ -77,6 +77,8 @@ textarea {
     padding-left: 3px;
 }
 
+/* POPUP DETAILS BEGIN */
+
 .popup {
     visibility: hidden;
     text-align: center;
@@ -106,6 +108,8 @@ textarea {
     visibility: visible;
     opacity: 1;
 }
+
+/* POPUP DETAILS END */
 
 @media print {
     #tableOne th {
