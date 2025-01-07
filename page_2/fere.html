@@ -155,13 +155,13 @@
                 </tr>
                 <tr>
                     <td class="linePrompt">12+ Hours duty?</td>
-                    <td>YES <input type="checkbox"></td>
+                    <td>YES <input type="checkbox" onclick="reveal2('dutyPrompt', 'redEyeQ1')" id="redEyeQ1"><div class="popup2 hidden" id="dutyPrompt">Seek Ops approval! <button class="exit2" onclick="hide('dutyPrompt')">X</button></div></td>
                     <td>NO <input type="checkbox"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
                 <tr>
                     <td class="linePrompt">'Red-Eye' operations? <div class="hoverPrompt">ⓘ<span class="popup">2300 - 0400 LT</span></div></td>
-                    <td>YES <input type="checkbox" onclick="reveal2('redEyePrompt', 'redEyeQ')" id="redEyeQ"><div class="popup2 hidden" id="redEyePrompt">Seek Ops approval! <button class="exit2" onclick="hide('redEyePrompt')">X</button></div></td>
+                    <td>YES <input type="checkbox" onclick="reveal2('redEyePrompt', 'redEyeQ2')" id="redEyeQ2"><div class="popup2 hidden" id="redEyePrompt">Seek Ops approval! <button class="exit2" onclick="hide('redEyePrompt')">X</button></div></td>
                     <td>NO <input type="checkbox"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
@@ -261,7 +261,7 @@
                 </tr>
                 <tr>
                     <td class="linePrompt">Overwater / coastal ops?</td>
-                    <td>YES <input type="checkbox"></td>
+                    <td>YES <input type="checkbox" onclick="reveal2('maintenancePrompt', 'redEyeQ3')" id="redEyeQ3"><div class="popup2 hidden" id="maintenancePrompt">Confirm rafts ON-BOARD with Maintenance! <br><i>Note rep you spoke with!</i> <button class="exit2" onclick="hide('maintenancePrompt')">X</button></div></td>
                     <td>NO <input type="checkbox"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>

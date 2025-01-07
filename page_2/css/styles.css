@@ -186,7 +186,8 @@ h3 {
 .exit2 {
     text-align: center;
     position: absolute;
-    bottom: 50%;
+    bottom: 60%;
+    left: 95%;
     z-index: 1;
     background-color: white;
     font-weight: bold;
