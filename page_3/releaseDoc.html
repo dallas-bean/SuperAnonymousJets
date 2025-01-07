@@ -248,10 +248,18 @@
                 </tr>
                 <tr>
                     <td class="linePrompt">Overwater / Coastal operations? <div class="hoverPrompt">ⓘ<span class="popup">Greater than 50nm off the coast</span></div></td>
-                    <td>YES <input type="checkbox"></td>
+                    <td>YES <input type="checkbox" onclick="reveal('overWater')"></td>
                     <td>NO <input type="checkbox"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
+                <tbody id="overWater" class="hidden">
+                    <tr>
+                        <td class="linePrompt">Confirmed rafts on-board with MX? <br> <i style="color: red; font-weight: 500;">Maintenance rep POC?</i></td>
+                        <td>YES <input type="checkbox"></td>
+                        <td>NO <input type="checkbox"></td>
+                        <td><input type="text" class="qAndABox"></td>
+                    </tr>
+                </tbody>
             </table>
             <h3>Coordination</h3>
             <table id="coordination">
