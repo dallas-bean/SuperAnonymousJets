@@ -371,6 +371,12 @@
             <table id="intnlTable" style="width: 90%;">
                 <tbody id="international" class="hidden">
                     <tr>
+                        <td style="width:22%;" class="linePrompt">Crew observing standard duty-on window?</td>
+                        <td style="width:4%;">YES <input type="checkbox"></td>
+                        <td style="width:4%;">NO <input type="checkbox" onclick="reveal2('preFlightTime', 'preFlightTimeQ')" id="preFlightTimeQ"><div class="popup2 hidden" id="preFlightTime">What is altered duty-on window?<br>ADD TO NOTES & ENSURE CREW NOTIFICATION! <button class="exit2" onclick="hide('preFlightTime')">X</button></div></td>
+                        <td style="width:70%;"><input type="text" class="qAndABox"></td>
+                    </tr>
+                    <tr>
                         <td style="width:22%;" class="linePrompt">Local handling agent / FBO confirmed on CTS?</td>
                         <td style="width:4%;">YES <input type="checkbox"></td>
                         <td style="width:4%;">NO <input type="checkbox"></td>
