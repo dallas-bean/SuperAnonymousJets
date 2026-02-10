@@ -234,7 +234,18 @@ function timeCalc() {
                                 }
                         
                                 // Start a new duty day
-                                maxDutyDayStart = timeOfDepartureConverted - 60; // Start new duty day (60 min offset)
+                                const legRoute = legElement.textContent.trim();
+                                const airports = legRoute.split("->").map(s => s.trim());
+                                const depAirport = airports[0] || "";
+                                const arrAirport = airports[1] || "";
+
+                                const dutyOffset =
+                                  depAirport.toUpperCase().startsWith("K") &&
+                                  arrAirport.toUpperCase().startsWith("K")
+                                    ? 60
+                                    : 90;
+
+                                maxDutyDayStart = timeOfDepartureConverted - dutyOffset;
                                     dutyOnConverted = convertMinutesToTime(maxDutyDayStart);
                                     dutyDayTimes.push(dutyOnConverted);
                                     currentDutyDayFlightTime = 0; // Reset flight time for the new day
