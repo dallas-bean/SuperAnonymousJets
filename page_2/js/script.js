@@ -234,7 +234,7 @@ function timeCalc() {
                                 }
                         
                                 // Start a new duty day
-                                maxDutyDayStart = timeOfDepartureConverted - 90; // Start new duty day
+                                maxDutyDayStart = timeOfDepartureConverted - 60; // Start new duty day (60 min offset)
                                     dutyOnConverted = convertMinutesToTime(maxDutyDayStart);
                                     dutyDayTimes.push(dutyOnConverted);
                                     currentDutyDayFlightTime = 0; // Reset flight time for the new day
