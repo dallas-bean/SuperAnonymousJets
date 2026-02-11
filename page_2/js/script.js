@@ -91,6 +91,7 @@ function populate(var1, var2, var3, var4, var5) {
     
     let ap1 = ap1E.value;
     let ap2 = ap2E.value;
+
     let etd = etdE.value;
     let eta = etaE.value;
     let dd = (ddE.value);
@@ -127,6 +128,72 @@ function populate(var1, var2, var3, var4, var5) {
             ddDate.setDate(ddDate.getDate() + 1);
         }
         ddE.value = ddDate.toISOString().split('T')[0];
+}
+
+function undoLastLeg() {
+    for (let i = 10; i >= 1; i--) {
+        let leg = document.getElementById(`TESTING${i}`);
+        if (!leg) continue;
+
+        if (leg.textContent.trim() !== "") {
+            let times = document.getElementById(`TESTING${i}A`);
+            let dates = document.getElementById(`TESTING${i}B`);
+
+            let routeText = leg.textContent.trim();
+            let parts = routeText.split('->').map(s => s.trim());
+            let dep = parts[0] || "";
+            let arr = parts[1] || "";
+
+            let etd = "";
+            let eta = "";
+            if (times && times.textContent.trim() !== "") {
+                const t = times.textContent.split('/').map(s => s.trim());
+                if (t.length >= 2) {
+                    etd = t[0];
+                    eta = t[1];
+                } else {
+                    const compact = times.textContent.replace(/\s+/g, '');
+                    etd = compact.slice(0, 4);
+                    eta = compact.slice(-4);
+                }
+            }
+
+            let duty = dates ? dates.textContent.trim() : "";
+
+            const ap1E = document.getElementById('testAP1');
+            const ap2E = document.getElementById('testAP2');
+            const etdE = document.getElementById('testTime1');
+            const etaE = document.getElementById('testTime2');
+            const ddE = document.getElementById('dutyDay');
+
+            if (ap1E) ap1E.value = dep;
+            if (ap2E) ap2E.value = arr;
+            if (etdE) etdE.value = etd;
+            if (etaE) etaE.value = eta;
+            if (ddE && duty) ddE.value = duty;
+
+            // clear the table cells for this leg
+            leg.textContent = "";
+            if (times) times.textContent = "";
+            if (dates) dates.textContent = "";
+
+            // hide expanded rows if TESTING5 is now empty
+            const rowReveal = document.getElementById("TESTING5");
+            const extraRow = document.getElementById("expandedRoute");
+            const extraWeather = document.getElementById("weatherTwo");
+            if (rowReveal && rowReveal.textContent.trim() === "") {
+                if (extraRow) extraRow.classList.add("hidden");
+                if (extraWeather) extraWeather.classList.add("hidden");
+            }
+
+            // recompute totals and update weather fields
+            timeCalc();
+            weatherPop();
+
+            if (ap2E) ap2E.focus();
+            break;
+        }
+    }
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
