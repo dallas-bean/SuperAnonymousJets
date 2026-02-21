@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" defer></script>
     <title>SAJ 24 Hour Release Doc</title>
 </head>
 <body class="centerFlex">
@@ -26,7 +26,7 @@
                         <td><input type="text" maxlength="4" placeholder="ETA" id="testTime2"></td>
                     </tr>
             </table>
-            <button class="noPrint" id="testButton" onclick="populate('testAP1', 'testAP2', 'testTime1', 'testTime2', 'dutyDay'); timeCalc(); weatherPop();">Add Leg</button>
+            <button class="noPrint" id="testButton">Add Leg</button>
             <table id="routing" class="centerFlex">
                         <tbody style="width: 100%;">
                             <tr>
@@ -129,7 +129,7 @@
                             </tbody>
                             <tbody class="hidden" id="warningPrompt">
                                 <tr>
-                                    <td><span id="flight1" class="hidden">FLIGHT TIME</span><span id="duty1" class="hidden"> DUTY TIME</span> TOO HIGH. SEEK OPS APPROVAL!<button class="exit" id="timesWarningExit" onclick="reveal('warningPrompt')">X</button></td>
+                                    <td><span id="flight1" class="hidden">FLIGHT TIME</span><span id="duty1" class="hidden"> DUTY TIME</span> TOO HIGH. SEEK OPS APPROVAL!<button class="exit" id="timesWarningExit">X</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -161,7 +161,7 @@
                 </tr>
             </table>
             <h3>Weather</h3>
-            <p><button onclick="genWeather()">Gen Weather</button></p>
+            <p><button id="genWeatherButton" class="noPrint">Gen Weather</button></p>
             <table id="weather">
                 <tr>
                     <td style="width: 1vw;"><input type="text" id="ICAO1a" placeholder="ICAO"></td>
@@ -248,7 +248,7 @@
                 </tr>
                 <tr>
                     <td class="linePrompt">Overwater / Coastal operations? <div class="hoverPrompt">ⓘ<span class="popup">Greater than 50nm off the coast</span></div></td>
-                    <td>YES <input type="checkbox" onclick="reveal('overWater')"></td>
+                    <td>YES <input type="checkbox" id="overWaterYes"></td>
                     <td>NO <input type="checkbox"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
@@ -294,7 +294,7 @@
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
             </table>
-            <h3>International <button class="roundMeLess noPrint" onclick="reveal('international')">+</button></h3>
+            <h3>International <button class="roundMeLess noPrint" id="internationalToggleButton">+</button></h3>
             <table id="intnlTable" style="width: 90%;">
                 <tbody id="international" class="hidden">
                     <tr>
@@ -372,7 +372,7 @@
                 </tbody>
             </table>
             <h3>Customer Service(s)</h3>
-            <table id="coordination">
+            <table id="coordinationCustomer">
                 <tr>
                     <td style="width:22%;" class="linePrompt">Catering arranged?</td>
                     <td style="width:4%;">YES <input type="checkbox"></td>
@@ -415,9 +415,9 @@
                 <td><input type="datetime-local" class="roundMeLess"></td>
             </tr>
         </table>
-        <h3><button id="PrintButton" class="roundMeLess noPrint"  onclick="window.print();return false" >Print to PDF</button></h3>
+        <h3><button id="PrintButton" class="roundMeLess noPrint">Print to PDF</button></h3>
         </div>
-        <div class="hidden centerFlex" id="crewStandards"><img src="./img/pic.png" alt="PIC"><img src="./img/sic.png" alt="SIC"><button class="exit" onclick="reveal('crewStandards')">x</button></div>
+        <div class="hidden centerFlex" id="crewStandards"><img src="./img/pic.png" alt="PIC"><img src="./img/sic.png" alt="SIC"><button class="exit" id="crewStandardsExit">x</button></div>
     </main>
 </body>
 </html>

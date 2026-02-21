@@ -218,6 +218,43 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 })
 
+// Attach replacement listeners for formerly inline handlers
+document.addEventListener('DOMContentLoaded', function() {
+    const testButton = document.getElementById('testButton');
+    if (testButton) {
+        testButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            populate('testAP1', 'testAP2', 'testTime1', 'testTime2', 'dutyDay');
+            timeCalc();
+            weatherPop();
+        });
+    }
+
+    const genWeatherBtn = document.getElementById('genWeatherButton');
+    if (genWeatherBtn) genWeatherBtn.addEventListener('click', function(e) { e.preventDefault(); genWeather(); });
+
+    const timesWarningExit = document.getElementById('timesWarningExit');
+    if (timesWarningExit) timesWarningExit.addEventListener('click', function(e) { e.preventDefault(); hide('warningPrompt'); });
+
+    const overWaterYes = document.getElementById('overWaterYes');
+    if (overWaterYes) {
+        overWaterYes.addEventListener('change', function() {
+            const target = document.getElementById('overWater');
+            if (!target) return;
+            if (this.checked) target.classList.remove('hidden'); else target.classList.add('hidden');
+        });
+    }
+
+    const internationalToggle = document.getElementById('internationalToggleButton');
+    if (internationalToggle) internationalToggle.addEventListener('click', function(e) { e.preventDefault(); reveal('international'); });
+
+    const printBtn = document.getElementById('PrintButton');
+    if (printBtn) printBtn.addEventListener('click', function(e) { e.preventDefault(); window.print(); });
+
+    const crewStandardsExit = document.getElementById('crewStandardsExit');
+    if (crewStandardsExit) crewStandardsExit.addEventListener('click', function(e) { e.preventDefault(); hide('crewStandards'); });
+});
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function populate(var1, var2, var3, var4, var5) {
