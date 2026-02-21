@@ -17,8 +17,8 @@
             <table style="width: 30%;" class="noPrint">
                     <tr style="width: 100%;">
                         <td><input type="date" id="dutyDay" placeholder="Date of Departure" aria-label="Date of departure"></td>
-                        <td><input type="text" maxlength="4" placeholder="AP1" id="testAP1" aria-label="Departure airport code"></td>
-                        <td><input type="text" maxlength="4" placeholder="AP2" id="testAP2" aria-label="Arrival airport code"></td>
+                        <td><input type="text" minlength="4" maxlength="4" pattern=".{4}" required placeholder="AP1" id="testAP1" aria-label="Departure airport code" title="please use 4-letter ID's"></td>
+                        <td><input type="text" minlength="4" maxlength="4" pattern=".{4}" required placeholder="AP2" id="testAP2" aria-label="Arrival airport code" title="please use 4-letter ID's"></td>
                     </tr>
                     <tr>
                         <td><b>Date of departure</b></td>

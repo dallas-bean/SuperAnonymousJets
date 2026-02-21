@@ -236,6 +236,39 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 })
 
+// Enforce exact 4-character requirement for AP inputs and disable Add Leg until valid
+function setupExactFourEnforcement() {
+    const ap1 = document.getElementById('testAP1');
+    const ap2 = document.getElementById('testAP2');
+    const addBtn = document.getElementById('testButton');
+    if (!ap1 || !ap2 || !addBtn) return;
+
+    ap1.setAttribute('maxlength', '4');
+    ap2.setAttribute('maxlength', '4');
+
+    const validate = () => {
+        const ok1 = ap1.value.trim().length === 4;
+        const ok2 = ap2.value.trim().length === 4;
+
+        if (!ok1) ap1.setCustomValidity("please use 4-letter ID's"); else ap1.setCustomValidity('');
+        if (!ok2) ap2.setCustomValidity("please use 4-letter ID's"); else ap2.setCustomValidity('');
+
+        addBtn.disabled = !(ok1 && ok2);
+    };
+
+    ap1.addEventListener('input', validate);
+    ap2.addEventListener('input', validate);
+
+    ap1.addEventListener('blur', () => { if (ap1.value.trim().length !== 4) ap1.reportValidity(); });
+    ap2.addEventListener('blur', () => { if (ap2.value.trim().length !== 4) ap2.reportValidity(); });
+
+    // initial state
+    validate();
+}
+
+// initialize enforcement after DOM is ready
+document.addEventListener('DOMContentLoaded', setupExactFourEnforcement);
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function populate(var1, var2, var3, var4, var5) {
