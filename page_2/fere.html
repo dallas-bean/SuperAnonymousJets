@@ -10,29 +10,29 @@
 <body class="centerFlex">
     <header class="centerFlex roundMeLess">
         <img src="./img/SAJ_Logo.png" alt="SAJ Feasibility Report" class="roundMe">
-        <div contenteditable="true" name="summaryBox" id="summaryBox" class="roundMeLess inputFormat bold textAreaAlt">Client | Tail # | Route | Date | Trip #</div>
+        <div contenteditable="true" name="summaryBox" id="summaryBox" class="roundMeLess inputFormat bold textAreaAlt" aria-label="Summary">Client | Tail # | Route | Date | Trip #</div>
     </header>
     <main class="centerFlex">        
         <div id="wrap" class="roundMeLess centerFlex">
             <table style="width: 30%;" class="noPrint">
                     <tr style="width: 100%;">
-                        <td><input type="date" id="dutyDay" placeholder="Date of Departure"></td>
-                        <td><input type="text" maxlength="4" placeholder="AP1" id="testAP1"></td>
-                        <td><input type="text" maxlength="4" placeholder="AP2" id="testAP2"></td>
+                        <td><input type="date" id="dutyDay" placeholder="Date of Departure" aria-label="Date of departure"></td>
+                        <td><input type="text" maxlength="4" placeholder="AP1" id="testAP1" aria-label="Departure airport code"></td>
+                        <td><input type="text" maxlength="4" placeholder="AP2" id="testAP2" aria-label="Arrival airport code"></td>
                     </tr>
                     <tr>
                         <td><b>Date of departure</b></td>
-                        <td><input type="text" maxlength="4" placeholder="ETD" id="testTime1"></td>
-                        <td><input type="text" maxlength="4" placeholder="ETA" id="testTime2"></td>
+                        <td><input type="text" maxlength="4" placeholder="ETD" id="testTime1" aria-label="Estimated time of departure"></td>
+                        <td><input type="text" maxlength="4" placeholder="ETA" id="testTime2" aria-label="Estimated time of arrival"></td>
                     </tr>
             </table>
             <button class="noPrint" id="testButton">Add Leg</button>
             <button class="noPrint" id="undoButton">Undo</button>
-            <table>
-                <table id="routing" class="centerFlex">
+            <div class="routingGroup">
+                <table id="routing" class="centerFlex" role="region" aria-labelledby="routingLabel" aria-live="polite">
                         <tbody style="width: 100%;">
                             <tr>
-                                <td style="width: 5%;" class="linePrompt">Route <br>eta/etd</td>
+                                <td style="width: 5%;" class="linePrompt"><span id="routingLabel">Route</span><br>eta/etd</td>
                                 <td class="textAreaAlt" style="width: 19%;">
                                     <div class="dateBox" id="TESTING1B"></div>
                                     <div id="TESTING1"></div>
@@ -90,34 +90,35 @@
                                 </td>
                             </tr>
                         </tbody>
-                        <table id="details" class="centerFlex">
+                    </table>
+                    <table id="details" class="centerFlex" role="region" aria-labelledby="detailsLabel">
                             <tbody id="detailsContainer">
                                 <tr>
                                     <td style="width:13%;"></td>
                                     <td style="width:25%;" class="bold">Crew & C.A. Assignment</td>
                                     <td style="width:13%;"></td>
                                     <td style="width:29%;" class="bold">Total Times <i>(zulu)</i></td>
-                                    <td style="max-width:20%;" rowspan="4"><div contenteditable="true" class="textAreaAlt"id="crewComments">Crewing Comments</div></td>
+                                    <td style="max-width:20%;" rowspan="4"><div contenteditable="true" class="textAreaAlt" id="crewComments" aria-label="Crewing comments">Crewing Comments</div></td>
                                 </tr>
                                 <tr>
                                     <td class="linePrompt">PIC:</td>
                                     <td><input type="text" placeholder="PIC"></td>
                                     <td class="linePrompt">Flight:</td>
-                                    <td><input type="text" placeholder="Total Flight Time" id="flightTime" style="width: 100%;"></td>
+                                    <td><input type="text" placeholder="Total Flight Time" id="flightTime" style="width: 100%;" aria-label="Total flight time"></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td class="linePrompt">SIC:</td>
                                     <td><input type="text" placeholder="SIC"></td>
                                     <td class="linePrompt">Duty:</td>
-                                    <td><input type="text" placeholder="Total Duty Time" id="dutyTime" style="width: 100%;"></td>
+                                    <td><input type="text" placeholder="Total Duty Time" id="dutyTime" style="width: 100%;" aria-label="Total duty time"></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td class="linePrompt">Cabin Attendant</td>
                                     <td><input type="text" placeholder="C.A."></td>
                                     <td class="linePrompt">Duty on (HHMM):</td>
-                                    <td><input type="text" placeholder="duty on" id="timeEntry" style="width: 100%;"></td>
+                                    <td><input type="text" placeholder="duty on" id="timeEntry" style="width: 100%;" aria-label="Duty on time"></td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -134,7 +135,7 @@
                                 </tr>
                             </tbody>
                         </table>
-            <h3>Details</h3>
+            <h3 id="detailsLabel">Details</h3>
             <table id="detailsTwo">
                 <tr>
                     <td style="width:22%;" class="linePrompt">Crew current?<br>Grace items?</td>
@@ -433,6 +434,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         <table id="notes">
             <tr>
                 <td style="width:22%;" class="linePrompt">Notes:</td>

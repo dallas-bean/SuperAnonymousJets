@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Attach listeners for data- attributes (replacing former inline onclicks)
     try {
-        // data-reveal: toggles visibility of target element
+        // data-reveal: toggles visibility of target element; non-checkbox triggers will position the popup near the trigger
         document.querySelectorAll('[data-reveal]').forEach(el => {
             const targetId = el.getAttribute('data-reveal');
             const target = document.getElementById(targetId);
@@ -126,19 +126,84 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (el.tagName.toLowerCase() === 'input' && el.type === 'checkbox') {
                 el.addEventListener('change', () => {
-                    if (el.checked) target.classList.remove('hidden'); else target.classList.add('hidden');
+                    if (el.checked) {
+                        target.classList.remove('hidden');
+                    } else {
+                        target.classList.add('hidden');
+                        // reset any inline positioning
+                        target.style.top = '';
+                        target.style.left = '';
+                        target.style.position = '';
+                    }
                 });
             } else {
-                el.addEventListener('click', (e) => { e.preventDefault(); target.classList.toggle('hidden'); });
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const wasHidden = target.classList.contains('hidden');
+                    if (wasHidden) {
+                        // show and anchor near the trigger element in document coordinates
+                        target.classList.remove('hidden');
+                        try {
+                            const rect = el.getBoundingClientRect();
+                            const top = rect.bottom + window.scrollY + 6; // 6px gap from viewport element
+                            let left = rect.left + window.scrollX;
+
+                            // avoid overflowing the right edge of the page
+                            const popupWidth = target.offsetWidth || 220;
+                            const maxLeft = document.documentElement.clientWidth + window.scrollX - popupWidth - 8;
+                            if (left > maxLeft) left = Math.max(8 + window.scrollX, maxLeft);
+                            if (left < 8 + window.scrollX) left = 8 + window.scrollX;
+
+                            // store original parent/nextSibling so we can restore when hidden
+                            if (!target.__origParent) {
+                                target.__origParent = target.parentNode;
+                                target.__origNext = target.nextSibling;
+                            }
+
+                            // append to body so absolute positioning is relative to document
+                            if (target.parentNode !== document.body) document.body.appendChild(target);
+
+                            target.style.position = 'absolute';
+                            target.style.top = top + 'px';
+                            target.style.left = left + 'px';
+                        } catch (err) {
+                            console.warn('Popup positioning failed', err);
+                        }
+                    } else {
+                        // hide and restore inline positioning and original DOM placement
+                        target.classList.add('hidden');
+                        target.style.top = '';
+                        target.style.left = '';
+                        target.style.position = '';
+                        try {
+                            if (target.__origParent) {
+                                if (target.__origNext && target.__origNext.parentNode === target.__origParent) {
+                                    target.__origParent.insertBefore(target, target.__origNext);
+                                } else {
+                                    target.__origParent.appendChild(target);
+                                }
+                                // keep the stored refs in case user toggles repeatedly
+                            }
+                        } catch (err) {
+                            // non-critical
+                        }
+                    }
+                });
             }
         });
 
-        // data-hide: hides the target element on click
+        // data-hide: hides the target element on click and clears inline positioning
         document.querySelectorAll('[data-hide]').forEach(el => {
             const targetId = el.getAttribute('data-hide');
             const target = document.getElementById(targetId);
             if (!target) return;
-            el.addEventListener('click', (e) => { e.preventDefault(); target.classList.add('hidden'); });
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                target.classList.add('hidden');
+                target.style.top = '';
+                target.style.left = '';
+                target.style.position = '';
+            });
         });
 
         // data-reveal2-target + data-reveal2-trigger: show/hide target based on trigger checkbox state
