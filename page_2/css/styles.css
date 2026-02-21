@@ -279,7 +279,7 @@ h3 {
     left: 9vw !important;
 }
 
-#printButton {
+#printButton, #PrintButton {
     font-weight: 100 !important;
 }
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */

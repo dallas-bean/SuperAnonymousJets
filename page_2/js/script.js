@@ -33,32 +33,28 @@ function revealClass(classID) {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function weatherPop() {
-    let lastFilledIndex = 1; // Start tracking from the first ICAO box
+    let lastFilledIndex = 1; // index for ICAO input pairs (ICAO1a/ICAO2a, ICAO3a/ICAO4a ...)
 
-    for (let i = 1; i <= 20; i += 2) {
-        const routeString = document.getElementById(`TESTING${(i + 1) / 2}`).textContent;
-        const depAP = routeString.slice(0, 4);
-        const arrAP = routeString.slice(-4);
+    for (let i = 1; i <= 10; i++) {
+        const testingEl = document.getElementById(`TESTING${i}`);
+        if (!testingEl) continue;
+
+        const routeString = testingEl.textContent ? testingEl.textContent.trim() : "";
+        if (!routeString) continue;
+
+        const parts = routeString.split('->').map(s => s.trim()).filter(Boolean);
+        if (parts.length < 2) continue;
+
+        const depAP = parts[0].slice(0, 4).toUpperCase();
+        const arrAP = parts[1].slice(0, 4).toUpperCase();
 
         const depBox = document.getElementById(`ICAO${lastFilledIndex}a`);
         const arrBox = document.getElementById(`ICAO${lastFilledIndex + 1}a`);
-        
-        // Populate the departure box if it's empty
-        if (depBox && depBox.value === "") {
-            depBox.value = depAP;
-        }
 
-        // Populate the arrival box if it's empty
-        if (arrBox && arrBox.value === "") {
-            arrBox.value = arrAP;
-        }
+        if (depBox && !depBox.value) depBox.value = depAP;
+        if (arrBox && !arrBox.value) arrBox.value = arrAP;
 
-        if (depBox.value === arrBox.value) {
-            continue;
-        }
-
-        lastFilledIndex += 1;
-        // Move to the next pair of boxes
+        lastFilledIndex += 2; // advance to the next pair
     }
 }
 
@@ -72,9 +68,53 @@ document.addEventListener("DOMContentLoaded", function() {
 
             let text = (e.clipboardData || window.clipboardData).getData('text');
 
-            document.execCommand('insertText', false, text);
+            try {
+                if (document.queryCommandSupported && document.queryCommandSupported('insertText')) {
+                    document.execCommand('insertText', false, text);
+                } else if (navigator.clipboard && navigator.clipboard.readText) {
+                    // Fallback if insertText not supported — attempt safe insert
+                    const sel = window.getSelection();
+                    if (sel && sel.rangeCount > 0) {
+                        sel.deleteFromDocument();
+                        sel.getRangeAt(0).insertNode(document.createTextNode(text));
+                    }
+                } else {
+                    // Last resort
+                    const sel = window.getSelection();
+                    if (sel && sel.rangeCount > 0) {
+                        sel.getRangeAt(0).insertNode(document.createTextNode(text));
+                    }
+                }
+            } catch (err) {
+                const sel = window.getSelection();
+                if (sel && sel.rangeCount > 0) {
+                    sel.getRangeAt(0).insertNode(document.createTextNode(text));
+                }
+            }
         });
     });
+
+    // Attach primary button listeners (replace inline onclicks)
+    try {
+        const testButton = document.getElementById('testButton');
+        if (testButton) {
+            testButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                populate('testAP1', 'testAP2', 'testTime1', 'testTime2', 'dutyDay');
+                timeCalc();
+                weatherPop();
+            });
+        }
+
+        const undoButton = document.getElementById('undoButton');
+        if (undoButton) undoButton.addEventListener('click', function (e) { e.preventDefault(); undoLastLeg(); });
+
+        const printBtn = document.getElementById('PrintButton') || document.getElementById('printButton');
+        if (printBtn) printBtn.addEventListener('click', function (e) { e.preventDefault(); window.print(); });
+    } catch (err) {
+        // fail silently — attaching listeners is non-critical
+        console.error('Failed to attach button listeners', err);
+    }
 })
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -89,12 +129,14 @@ function populate(var1, var2, var3, var4, var5) {
     let extraRow = document.getElementById("expandedRoute");
     let extraWeather = document.getElementById("weatherTwo");
     
+    if (!ap1E || !ap2E || !etdE || !etaE || !ddE) return;
+
     let ap1 = ap1E.value;
     let ap2 = ap2E.value;
 
     let etd = etdE.value;
     let eta = etaE.value;
-    let dd = (ddE.value);
+    let dd = ddE.value;
 
     for (let i = 1; i <= 10; i++) {
         let leg = document.getElementById(`TESTING${i}`);
@@ -248,6 +290,7 @@ function timeCalc() {
     let currentDutyDayFlightTime = 0;
     let lastArrivalTimeInMinutes = null;
     let maxDutyDayStart = null;
+    let dutyOnConverted = null;
     let dutyDayCount = 1;
     let dutyDayFlightTimes = [];
     let dutyDayTimes = [];
@@ -298,6 +341,18 @@ function timeCalc() {
                                         // Log the flight time for the previous duty day
                                     dutyDayFlightTimes.push(currentDutyDayFlightTime); 
                                         // Store the current day's flight time
+
+                                        // Compute and log the minimum duty-off time for the previous day
+                                    try {
+                                        if (typeof maxDutyDayStart === 'number') {
+                                            const minDutyOffMinutes = maxDutyDayStart + Math.round(13.5 * 60); // 13.5 hours = 810 minutes
+                                            dutyOffTimes.push(convertMinutesToTime2(minDutyOffMinutes % (24 * 60)));
+                                        } else {
+                                            dutyOffTimes.push("");
+                                        }
+                                    } catch (e) {
+                                        dutyOffTimes.push("");
+                                    }
                                 }
                         
                                 // Start a new duty day
@@ -362,6 +417,16 @@ function timeCalc() {
                         
                             // Log the final day's flight time
                             dutyDayFlightTimes.push(currentDutyDayFlightTime);
+                            try {
+                                if (typeof maxDutyDayStart === 'number') {
+                                    const minDutyOffMinutes = maxDutyDayStart + Math.round(13.5 * 60);
+                                    dutyOffTimes.push(convertMinutesToTime2(minDutyOffMinutes % (24 * 60)));
+                                } else {
+                                    dutyOffTimes.push("");
+                                }
+                            } catch (e) {
+                                dutyOffTimes.push("");
+                            }
                         }
                         
                         // Update the DOM elements with the results
