@@ -185,14 +185,14 @@ function weatherPop() {
         const depBox = document.getElementById(`ICAO${lastFilledIndex}a`);
         const arrBox = document.getElementById(`ICAO${lastFilledIndex + 1}a`);
 
-        // Populate the departure box if it's empty
-        if (depBox && depBox.value === "") {
-            depBox.value = depAP;
+        // Populate the departure box if it's empty (force uppercase)
+        if (depBox && (!depBox.value || depBox.value.trim() === '')) {
+            depBox.value = (depAP || '').toUpperCase();
         }
 
-        // Populate the arrival box if it's empty
-        if (arrBox && arrBox.value === "") {
-            arrBox.value = arrAP;
+        // Populate the arrival box if it's empty (force uppercase)
+        if (arrBox && (!arrBox.value || arrBox.value.trim() === '')) {
+            arrBox.value = (arrAP || '').toUpperCase();
         }
 
         if (depBox === arrBox.value) {
@@ -213,7 +213,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
             let text = (e.clipboardData || window.clipboardData).getData('text');
 
-            document.execCommand('insertText', false, text);
+            try {
+                if (document.queryCommandSupported && document.queryCommandSupported('insertText')) {
+                    document.execCommand('insertText', false, text);
+                } else if (navigator.clipboard && navigator.clipboard.readText) {
+                    // Fallback if insertText not supported — attempt safe insert
+                    const sel = window.getSelection();
+                    if (sel && sel.rangeCount > 0) {
+                        sel.deleteFromDocument();
+                        sel.getRangeAt(0).insertNode(document.createTextNode(text));
+                    }
+                } else {
+                    // Last resort
+                    const sel = window.getSelection();
+                    if (sel && sel.rangeCount > 0) {
+                        sel.getRangeAt(0).insertNode(document.createTextNode(text));
+                    }
+                }
+            } catch (err) {
+                const sel = window.getSelection();
+                if (sel && sel.rangeCount > 0) {
+                    sel.getRangeAt(0).insertNode(document.createTextNode(text));
+                }
+            }
         });
     });
 })
@@ -260,6 +282,127 @@ document.addEventListener('DOMContentLoaded', function() {
     // attach undo listener if present
     const undoButton = document.getElementById('undoButton');
     if (undoButton) undoButton.addEventListener('click', function(e) { e.preventDefault(); undoLastLeg(); });
+});
+
+// Attach listeners for data- attributes (replacing former inline onclicks)
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        // data-reveal: toggles visibility of target element; non-checkbox triggers will position the popup near the trigger
+        document.querySelectorAll('[data-reveal]').forEach(el => {
+            const targetId = el.getAttribute('data-reveal');
+            const target = document.getElementById(targetId);
+            if (!target) return;
+
+            if (el.tagName.toLowerCase() === 'input' && el.type === 'checkbox') {
+                el.addEventListener('change', () => {
+                    if (el.checked) {
+                        target.classList.remove('hidden');
+                    } else {
+                        target.classList.add('hidden');
+                        // reset any inline positioning
+                        target.style.top = '';
+                        target.style.left = '';
+                        target.style.position = '';
+                    }
+                });
+            } else {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const wasHidden = target.classList.contains('hidden');
+                    if (wasHidden) {
+                        // Only perform absolute anchoring for small popup-like elements.
+                        const isPopup = target.classList.contains('popup2') || target.classList.contains('popup') || target.getAttribute('role') === 'dialog' || target.hasAttribute('data-popup');
+                        // If it's not a popup (e.g. large inline sections like #international), just reveal inline.
+                        if (!isPopup) {
+                            target.classList.remove('hidden');
+                            return;
+                        }
+
+                        // show and anchor near the trigger element in document coordinates
+                        target.classList.remove('hidden');
+                        try {
+                            const rect = el.getBoundingClientRect();
+                            const top = rect.bottom + window.scrollY + 6; // 6px gap from viewport element
+                            let left = rect.left + window.scrollX;
+
+                            // avoid overflowing the right edge of the page
+                            const popupWidth = target.offsetWidth || 220;
+                            const maxLeft = document.documentElement.clientWidth + window.scrollX - popupWidth - 8;
+                            if (left > maxLeft) left = Math.max(8 + window.scrollX, maxLeft);
+                            if (left < 8 + window.scrollX) left = 8 + window.scrollX;
+
+                            // store original parent/nextSibling so we can restore when hidden
+                            if (!target.__origParent) {
+                                target.__origParent = target.parentNode;
+                                target.__origNext = target.nextSibling;
+                            }
+
+                            // append to body so absolute positioning is relative to document
+                            if (target.parentNode !== document.body) document.body.appendChild(target);
+
+                            target.style.position = 'absolute';
+                            target.style.top = top + 'px';
+                            target.style.left = left + 'px';
+                        } catch (err) {
+                            console.warn('Popup positioning failed', err);
+                        }
+                    } else {
+                        // hide and restore inline positioning and original DOM placement
+                        target.classList.add('hidden');
+                        target.style.top = '';
+                        target.style.left = '';
+                        target.style.position = '';
+                        try {
+                            if (target.__origParent) {
+                                if (target.__origNext && target.__origNext.parentNode === target.__origParent) {
+                                    target.__origParent.insertBefore(target, target.__origNext);
+                                } else {
+                                    target.__origParent.appendChild(target);
+                                }
+                                // keep the stored refs in case user toggles repeatedly
+                            }
+                        } catch (err) {
+                            // non-critical
+                        }
+                    }
+                });
+            }
+        });
+
+        // data-hide: hides the target element on click and clears inline positioning
+        document.querySelectorAll('[data-hide]').forEach(el => {
+            const targetId = el.getAttribute('data-hide');
+            const target = document.getElementById(targetId);
+            if (!target) return;
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                target.classList.add('hidden');
+                target.style.top = '';
+                target.style.left = '';
+                target.style.position = '';
+            });
+        });
+
+        // data-reveal2-target + data-reveal2-trigger: show/hide target based on trigger checkbox state
+        document.querySelectorAll('[data-reveal2-target]').forEach(el => {
+            const targetId = el.getAttribute('data-reveal2-target');
+            const triggerId = el.getAttribute('data-reveal2-trigger');
+            const target = document.getElementById(targetId);
+            let trigger = null;
+            if (triggerId) trigger = document.getElementById(triggerId);
+            // If no external trigger specified, el itself is likely the checkbox
+            if (!trigger) {
+                trigger = el;
+            }
+            if (!target || !trigger) return;
+
+            trigger.addEventListener('change', () => {
+                if (trigger.checked) target.classList.remove('hidden'); else target.classList.add('hidden');
+            });
+        });
+    } catch (err) {
+        console.error('Failed to attach data- attribute listeners', err);
+    }
 });
 
 // Enforce exact 4-character alphanumeric requirement for AP/ICAO inputs
