@@ -141,6 +141,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     e.preventDefault();
                     const wasHidden = target.classList.contains('hidden');
                     if (wasHidden) {
+                        // Only perform absolute anchoring for small popup-like elements.
+                        const isPopup = target.classList.contains('popup2') || target.classList.contains('popup') || target.getAttribute('role') === 'dialog' || target.hasAttribute('data-popup');
+                        // If it's not a popup (e.g. large inline sections like #international), just reveal inline.
+                        if (!isPopup) {
+                            target.classList.remove('hidden');
+                            return;
+                        }
+
                         // show and anchor near the trigger element in document coordinates
                         target.classList.remove('hidden');
                         try {
