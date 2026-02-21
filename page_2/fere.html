@@ -130,7 +130,7 @@
                             </tbody>
                             <tbody class="hidden" id="warningPrompt">
                                 <tr>
-                                    <td><span id="flight1" class="hidden">FLIGHT TIME</span><span id="duty1" class="hidden"> DUTY TIME</span> TOO HIGH. SEEK OPS APPROVAL!<button class="exit" id="timesWarningExit" onclick="reveal('warningPrompt')">X</button></td>
+                                    <td><span id="flight1" class="hidden">FLIGHT TIME</span><span id="duty1" class="hidden"> DUTY TIME</span> TOO HIGH. SEEK OPS APPROVAL!<button class="exit" id="timesWarningExit" data-reveal="warningPrompt">X</button></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -156,13 +156,13 @@
                 </tr>
                 <tr>
                     <td class="linePrompt">12+ Hours duty?</td>
-                    <td>YES <input type="checkbox" onclick="reveal2('dutyPrompt', 'redEyeQ1')" id="redEyeQ1"><div class="popup2 hidden" id="dutyPrompt">Seek Ops approval! <button class="exit2" onclick="hide('dutyPrompt')">X</button></div></td>
+                    <td>YES <input type="checkbox" data-reveal2-target="dutyPrompt" data-reveal2-trigger="redEyeQ1" id="redEyeQ1"><div class="popup2 hidden" id="dutyPrompt">Seek Ops approval! <button class="exit2" data-hide="dutyPrompt">X</button></div></td>
                     <td>NO <input type="checkbox"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
                 <tr>
                     <td class="linePrompt">'Red-Eye' operations? <div class="hoverPrompt">ⓘ<span class="popup">2300 - 0400 LT</span></div></td>
-                    <td>YES <input type="checkbox" onclick="reveal2('redEyePrompt', 'redEyeQ2')" id="redEyeQ2"><div class="popup2 hidden" id="redEyePrompt">Seek Ops approval! <button class="exit2" onclick="hide('redEyePrompt')">X</button></div></td>
+                    <td>YES <input type="checkbox" data-reveal2-target="redEyePrompt" data-reveal2-trigger="redEyeQ2" id="redEyeQ2"><div class="popup2 hidden" id="redEyePrompt">Seek Ops approval! <button class="exit2" data-hide="redEyePrompt">X</button></div></td>
                     <td>NO <input type="checkbox"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
@@ -180,7 +180,7 @@
                 </tr>
                 <tr>
                     <td class="linePrompt">Is this an EJM (NetJets) trip?</td>
-                    <td>YES <input type="checkbox" onclick="reveal('netJets')"></td>
+                    <td>YES <input type="checkbox" data-reveal="netJets"></td>
                     <td>NO <input type="checkbox"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
@@ -192,7 +192,7 @@
                         <td><input type="text" class="qAndABox"></td>
                     </tr>
                     <tr>
-                        <td class="linePrompt"><div class="hoverPrompt" onclick="reveal('crewStandards')">Crewing standards met?</div></td>
+                        <td class="linePrompt"><div class="hoverPrompt" data-reveal="crewStandards">Crewing standards met?</div></td>
                         <td>YES <input type="checkbox"></td>
                         <td>NO <input type="checkbox"></td>
                         <td><input type="text" class="qAndABox"></td>
@@ -262,7 +262,7 @@
                 </tr>
                 <tr>
                     <td class="linePrompt">Overwater / coastal ops? <div class="hoverPrompt">ⓘ<span class="popup">Greater than 50nm off the coast</span></div></td>
-                    <td>YES <input type="checkbox" onclick="reveal2('maintenancePrompt', 'redEyeQ3')" id="redEyeQ3"><div class="popup2 hidden" id="maintenancePrompt">Confirm rafts ON-BOARD with Maintenance! <br><i>Note rep you spoke with!</i> <button class="exit2" onclick="hide('maintenancePrompt')">X</button></div></td>
+                    <td>YES <input type="checkbox" data-reveal2-target="maintenancePrompt" data-reveal2-trigger="redEyeQ3" id="redEyeQ3"><div class="popup2 hidden" id="maintenancePrompt">Confirm rafts ON-BOARD with Maintenance! <br><i>Note rep you spoke with!</i> <button class="exit2" data-hide="maintenancePrompt">X</button></div></td>
                     <td>NO <input type="checkbox"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
@@ -337,7 +337,7 @@
                 </tr>
                 <tr>
                     <td class="linePrompt">Fee's recorded?<br><i>(regular & special event)</i></td>
-                    <td>YES <input type="checkbox" onclick="reveal2('feesPrompt', 'feesQ')" id="feesQ"><div class="popup2 hidden" id="feesPrompt">RECORD FEES IN JI! <button class="exit2" onclick="hide('feesPrompt')">X</button></div></td>
+                    <td>YES <input type="checkbox" data-reveal2-target="feesPrompt" data-reveal2-trigger="feesQ" id="feesQ"><div class="popup2 hidden" id="feesPrompt">RECORD FEES IN JI! <button class="exit2" data-hide="feesPrompt">X</button></div></td>
                     <td>NO <input type="checkbox"></td>
                     <td><div contenteditable="true" class="textAreaAlt"></div></td>
                 </tr>
@@ -350,7 +350,7 @@
                 <tr>
                     <td class="linePrompt">Is the facility IS-BAH Certified?</td>
                     <td>YES <input type="checkbox"></td>
-                    <td>NO <input type="checkbox" onclick="reveal('isBah')"></td>
+                    <td>NO <input type="checkbox" data-reveal="isBah"></td>
                     <td><input type="text" class="qAndABox"></td>
                 </tr>
                 <tbody id="isBah" class="hidden">
@@ -368,13 +368,13 @@
                     </tr>
                 </tbody>
             </table>
-            <h3>International <button class="roundMeLess noPrint" onclick="reveal('international')">+</button></h3>
+            <h3>International <button class="roundMeLess noPrint" data-reveal="international">+</button></h3>
             <table id="intnlTable" style="width: 90%;">
                 <tbody id="international" class="hidden">
                     <tr>
                         <td style="width:22%;" class="linePrompt">Crew observing standard duty-on window?</td>
                         <td style="width:4%;">YES <input type="checkbox"></td>
-                        <td style="width:4%;">NO <input type="checkbox" onclick="reveal2('preFlightTime', 'preFlightTimeQ')" id="preFlightTimeQ"><div class="popup2 hidden" id="preFlightTime">What is altered duty-on window?<br>ADD TO NOTES & ENSURE CREW NOTIFICATION! <button class="exit2" onclick="hide('preFlightTime')">X</button></div></td>
+                        <td style="width:4%;">NO <input type="checkbox" data-reveal2-target="preFlightTime" data-reveal2-trigger="preFlightTimeQ" id="preFlightTimeQ"><div class="popup2 hidden" id="preFlightTime">What is altered duty-on window?<br>ADD TO NOTES & ENSURE CREW NOTIFICATION! <button class="exit2" data-hide="preFlightTime">X</button></div></td>
                         <td style="width:70%;"><input type="text" class="qAndABox"></td>
                     </tr>
                     <tr>
@@ -445,7 +445,7 @@
         </table>
         <h3><button id="PrintButton" class="roundMeLess noPrint">Print to PDF</button></h3>
         </div>
-        <div class="hidden centerFlex" id="crewStandards"><img src="./img/pic.png" alt="PIC"><img src="./img/sic.png" alt="SIC"><button class="exit" onclick="reveal('crewStandards')">x</button></div>
+        <div class="hidden centerFlex" id="crewStandards"><img src="./img/pic.png" alt="PIC"><img src="./img/sic.png" alt="SIC"><button class="exit" data-reveal="crewStandards">x</button></div>
     </main>
 </body>
 </html>
