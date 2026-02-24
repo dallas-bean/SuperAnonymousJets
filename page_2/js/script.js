@@ -248,19 +248,26 @@ function setupExactFourEnforcement() {
 
     const validate = () => {
         const ok1 = ap1.value.trim().length === 4;
-        const ok2 = ap2.value.trim().length === 4;
+        const ap2Len = ap2.value.trim().length;
+        const ok2_exact = ap2Len === 4; // ready to add
+        const ok2_valid = ap2Len === 0 || ok2_exact; // empty is allowed (optional), otherwise must be 4
 
         if (!ok1) ap1.setCustomValidity("please use 4-letter ID's"); else ap1.setCustomValidity('');
-        if (!ok2) ap2.setCustomValidity("please use 4-letter ID's"); else ap2.setCustomValidity('');
+        if (!ok2_valid) ap2.setCustomValidity("please use 4-letter ID's"); else ap2.setCustomValidity('');
 
-        addBtn.disabled = !(ok1 && ok2);
+        // only enable Add Leg when both APs are present and exactly 4 chars
+        addBtn.disabled = !(ok1 && ok2_exact);
     };
 
     ap1.addEventListener('input', validate);
     ap2.addEventListener('input', validate);
 
     ap1.addEventListener('blur', () => { if (ap1.value.trim().length !== 4) ap1.reportValidity(); });
-    ap2.addEventListener('blur', () => { if (ap2.value.trim().length !== 4) ap2.reportValidity(); });
+    // Show validity popup on blur for AP2 only when user has entered 1-3 chars
+    ap2.addEventListener('blur', () => {
+        const len = ap2.value.trim().length;
+        if (len > 0 && len < 4) ap2.reportValidity();
+    });
 
     // initial state
     validate();
