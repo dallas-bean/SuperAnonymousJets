@@ -33,7 +33,10 @@ function revealClass(classID) {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function weatherPop() {
-    let lastFilledIndex = 1; // index for ICAO input pairs (ICAO1a/ICAO2a, ICAO3a/ICAO4a ...)
+    // Build a flat ordered list of unique sequential stops.
+    // When consecutive legs share an airport (arrival of leg N = departure of leg N+1),
+    // that airport only occupies one ICAO box instead of two.
+    const stops = [];
 
     for (let i = 1; i <= 10; i++) {
         const testingEl = document.getElementById(`TESTING${i}`);
@@ -48,13 +51,19 @@ function weatherPop() {
         const depAP = parts[0].slice(0, 4).toUpperCase();
         const arrAP = parts[1].slice(0, 4).toUpperCase();
 
-        const depBox = document.getElementById(`ICAO${lastFilledIndex}a`);
-        const arrBox = document.getElementById(`ICAO${lastFilledIndex + 1}a`);
+        // Only add departure if it differs from the last recorded stop (avoids duplication on connected legs)
+        if (stops.length === 0 || stops[stops.length - 1] !== depAP) {
+            stops.push(depAP);
+        }
+        stops.push(arrAP);
+    }
 
-        if (depBox && !depBox.value) depBox.value = depAP;
-        if (arrBox && !arrBox.value) arrBox.value = arrAP;
-
-        lastFilledIndex += 2; // advance to the next pair
+    // Fill each ICAO box from the unique stops list
+    for (let i = 0; i < stops.length; i++) {
+        const box = document.getElementById(`ICAO${i + 1}a`);
+        if (box && !box.value) {
+            box.value = stops[i];
+        }
     }
 }
 
